@@ -1,0 +1,39 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Развертывать при пуше в ветку main (или master, если вы используете ее)
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest # Используем последнюю версию Ubuntu
+
+    steps:
+      - name: Checkout 🏗️
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 🛠️
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20 # Рекомендуется использовать конкретную LTS версию
+          cache: 'yarn' # Настраиваем кеширование для Yarn PnP
+
+      - name: Install dependencies 📦
+        # Так как вы используете Yarn PnP, достаточно просто запустить 'yarn'.
+        # Yarn сам установит зависимости и настроит PnP.
+        run: yarn install --immutable # --immutable рекомендуется для CI
+
+      - name: Build website 🔨
+        # Запускаем ваш production Webpack скрипт
+        run: yarn build
+
+      - name: Deploy to GitHub Pages 🚀
+        # Используем популярный экшен для деплоя
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }} # Github автоматически предоставляет этот токен
+          publish_dir: ./dist # Папка, которую Webpack собирает (указана в вашем webpack.config.js)
+          publish_branch: gh-pages # Ветка, куда будет развернут сайт
+          # user_name: 'github-actions[bot]' # Опционально: настроить автора коммита
+          # user_email: 'github-actions[bot]@users.noreply.github.com' # Опционально
