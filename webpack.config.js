@@ -17,7 +17,6 @@ module.exports = (env, argv) => {
     output: {
       filename: isProduction ? 'js/[name].[contenthash].js' : 'js/[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
-      // !!! ИСПРАВЛЕНО: Динамический publicPath для GitHub Pages !!!
       publicPath: isProduction ? `/${REPOSITORY_NAME}/` : '/',
       clean: true,
     },
@@ -46,12 +45,15 @@ module.exports = (env, argv) => {
       rules: [
         {
           test: /\.js$/,
-          // exclude: /node_modules/, // При использовании PnP обычно не нужно исключать
+          // !!! ИСПРАВЛЕНО: Явно исключаем node_modules и виртуальные директории PnP !!!
+          exclude: [
+            /node_modules/, // Стандартное исключение
+            /\.yarn[\\\/].*?[\\\/]virtual[\\\/]/ // Исключаем виртуальные директории Yarn PnP
+          ],
           use: {
             loader: 'babel-loader',
             options: {
               presets: [
-                // Использование useBuiltIns: 'usage' требует установки core-js как зависимости
                 ['@babel/preset-env', { useBuiltIns: 'usage', corejs: 3 }]
               ],
             },
