@@ -1,0 +1,28 @@
+$primary-color: #3498db;
+$font-stack: Helvetica, sans-serif;
+@use "sass:color";
+body {
+  font: 100% $font-stack;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+h1 {
+  color: $primary-color;
+  text-align: center;
+}
+
+#app p {
+    color: color.adjust($primary-color, $lightness: -20%);
+    font-style: italic;
+}
+
+// Пример использования Autoprefixer
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: lightgrey;
+}
