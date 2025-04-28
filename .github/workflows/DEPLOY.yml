@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Build + Deploy to GitHub Pages
 
 on:
   push:
@@ -8,6 +8,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest # Используем последнюю версию Ubuntu
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout 🏗️
