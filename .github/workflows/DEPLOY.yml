@@ -13,14 +13,15 @@ jobs:
       - name: Checkout 🏗️
         uses: actions/checkout@v4
 
+      - name: Enable Corepack
+        run: corepack enable # Добавьте этот шаг
+
       - name: Setup Node.js 🛠️
         uses: actions/setup-node@v4
         with:
           node-version: 20 # Рекомендуется использовать конкретную LTS версию
           cache: 'yarn' # Настраиваем кеширование для Yarn PnP
-          corepack: true # Добавьте эту строку
-      - name: Enable Corepack (Fallback)
-        run: corepack enable # Добавьте этот шаг
+          # corepack: true # Добавьте эту строку
 
       - name: Install dependencies 📦
         # Так как вы используете Yarn PnP, достаточно просто запустить 'yarn'.
