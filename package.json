@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "license": "MIT",
   "packageManager": "yarn@4.6.0",
+  "dependencies": {
+    "core-js": "^3.30.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.26.10",
     "@babel/preset-env": "^7.26.9",
