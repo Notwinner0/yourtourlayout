@@ -10,9 +10,14 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Для checkout
-      pages: write # Для actions/deploy-pages (рекомендуется)
-      id-token: write # Для actions/deploy-pages (рекомендуется)
+      contents: write
+      pages: write # Необходимы для actions/deploy-pages
+      id-token: write # Необходимы для actions/deploy-pages
+
+    # !!! ДОБАВЛЕНО: Указываем окружение для деплоя !!!
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }} # Опционально: ссылка на опубликованный сайт
 
     steps:
       - name: Checkout 🏗️
@@ -24,16 +29,16 @@ jobs:
       - name: Setup Node.js 🛠️
         uses: actions/setup-node@v4
         with:
-          node-version: 20 # Используйте конкретную LTS версию
+          node-version: 20
           cache: 'yarn'
 
       - name: Install dependencies 📦
         run: yarn install --immutable
 
       - name: Build website 🔨
-        run: yarn build # Этот шаг теперь должен проходить успешно
+        run: yarn build
 
-      # Рекомендуемый способ деплоя на GitHub Pages через официальные actions
+      # Используем новый, рекомендуемый способ деплоя на GitHub Pages через официальные actions
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
@@ -43,5 +48,5 @@ jobs:
           path: './dist'
 
       - name: Deploy to GitHub Pages 🚀
-        id: deployment
+        id: deployment # Присваиваем ID, чтобы можно было сослаться на output
         uses: actions/deploy-pages@v4
