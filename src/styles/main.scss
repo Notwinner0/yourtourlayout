@@ -1,28 +1,220 @@
-$primary-color: #3498db;
-$font-stack: Helvetica, sans-serif;
+//imports
 @use "sass:color";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+//colors
+$primary-color: #3498db;
+$body-bg: #F9F7F4;
+
+$black: #1B1F2B;
+
+// font
+$font-stack: 'Roboto',
+sans-serif;
+$font-size: 16px;
+
+html,
 body {
-  font: 100% $font-stack;
-  color: #333;
-  line-height: 1.6;
-  padding: 20px;
+  margin: 0;
+  padding: 0;
+  background: $body-bg;
+  font-family: $font-stack;
+  font-size: $font-size;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h1 {
-  color: $primary-color;
-  text-align: center;
+  /* Съешь же ещё этих мягких французских булок да выпей чаю. */
+  margin: 0;
+  /* H1 */
+  font-style: normal;
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 109%;
+  /* or 105px */
+  letter-spacing: 0.02em;
+
+  /* Black */
+  color: $black;
+
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
 }
 
-#app p {
-    color: color.adjust($primary-color, $lightness: -20%);
-    font-style: italic;
+h2 {
+  /* Съешь же ещё этих мягких французских булок да выпей чаю. */
+  @extend h1;
+  /* H2 */
+  font-size: 59px;
+  line-height: 124%;
+  /* or 73px */
+  letter-spacing: default;
 }
 
-// Пример использования Autoprefixer
-.box {
+h3 {
+  /* Съешь же ещё этих мягких французских булок да выпей чаю. */
+  @extend h1;
+  /* H3 */
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 122%;
+  /* or 43px */
+}
+
+.p-normal {
+  /* Съешь же ещё этих мягких французских булок да выпей чаю. */
+
+  /* p-normal */
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 142%;
+  letter-spacing: 0;
+  font-kerning: none;
+  font-variant-ligatures: none;
+  /* or 28px */
+
+  /* Black */
+  color: $black;
+
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+
+}
+
+.p-big {
+  /* Съешь же ещё этих мягких французских булок да выпей чаю. */
+  @extend .p-normal;
+  /* p-big */
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 122%;
+  /* identical to box height, or 28px */
+}
+
+.p-small {
+  /* Съешь же ещё этих мягких французских булок да выпей чаю. */
+  /* p-small */
+  @extend .p-normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 142%;
+  /* or 24px */
+  letter-spacing: -0.01em;
+
+}
+
+
+header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  position: absolute;
+  width: 100vw;
+  justify-content: center;
+  height: 88px;
+
+  .header-content {
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
     align-items: center;
-    height: 100px;
-    background-color: lightgrey;
+    justify-content: space-between;
+    width: 1168px;
+
+    .logo {
+      background-image: url(../assets/images/YourTour.svg);
+      background-size: cover;
+      /* или другие нужные свойства */
+      width: 181.34px;
+      height: 30.24px;
+    }
+
+    .mid-section {
+      width: 468px;
+      display: flex;
+      width: 468px;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+
+      .header-button {
+        color: white;
+        background-color: transparent;
+        border-color: transparent;
+        border: none;
+        padding: 0 0;
+        font-family: $font-stack;
+      }
+    }
+
+    .phone-number {
+      width: 155px;
+      text-align: center;
+      color: white;
+      align-self: center;
+    }
+  }
+
+}
+
+.head-column {
+  /* header-img */
+
+  width: 100vw;
+  height: 831px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 39.9%), linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../assets/images/header-img.png);
+  display: flex;
+  flex-direction: column;
+  align-items: center; // Horizontally centers the text wrapper and the button
+
+  .head-text-content {
+    text-align: center; // Centers the text lines within the wrapper
+    margin-bottom: 50px;
+    margin-top: (119px + 88px);
+    /* Add space between the text block and the button */
+  }
+
+  .head-title {
+    color: white;
+    max-width: 100%; // Add max-width to prevent overflow
+    width: 767px;
+    margin-bottom: 50px;
+  }
+
+  .head-p {
+    color: white;
+    // Consider adding margin-bottom if needed
+    margin-bottom: 50px;
+    width: 562px;
+    margin: 0 auto; /* Центрирует блочный элемент по горизонтали */
+  }
+
+  .head-button {
+    width: 118px;
+    height: 34px;
+    text-align: center;
+    background-color: white;
+    border-color: transparent;
+    border: none;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
 }
