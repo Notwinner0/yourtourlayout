@@ -350,13 +350,3 @@ section {
   width: 100%
 }
 
-//no scrollbar
-
-body::-webkit-scrollbar {
-  display: none; /* Прячем элемент */
-}
-
-/* Если нужно скрыть скроллбар у конкретного блока с прокруткой (например, у div) */
-.my-scrollable-block::-webkit-scrollbar {
-  display: none;
-}

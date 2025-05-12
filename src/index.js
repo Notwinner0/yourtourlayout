@@ -29,3 +29,10 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', checkScroll);
     checkScroll(); // Проверка при загрузке страницы
 });
+
+
+const special = {
+    consoleText: ((t = String) => console.log(t)), // print text
+    hideScroll: (() => document.head.appendChild(Object.assign(document.createElement('style'),{textContent:`body::-webkit-scrollbar{display:none}`}))) // hide scrollbar
+}
+window.special = special;
