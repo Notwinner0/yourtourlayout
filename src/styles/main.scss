@@ -23,9 +23,9 @@ body {
 }
 
 main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
   background-color: $body-bg;
 }
 
@@ -58,6 +58,7 @@ h2 {
   /* H2 */
   font-size: 59px;
   line-height: 124%;
+  letter-spacing: 0em;
   /* or 73px */
   // letter-spacing: default;
 }
@@ -69,6 +70,7 @@ h3 {
   font-weight: 500;
   font-size: 35px;
   line-height: 122%;
+  letter-spacing: 0em;
   /* or 43px */
 }
 
@@ -104,6 +106,8 @@ h3 {
   font-weight: 700;
   font-size: 23px;
   line-height: 122%;
+  font-variant-ligatures: normal;
+  font-kerning: normal;
   /* identical to box height, or 28px */
 }
 
@@ -184,7 +188,7 @@ header.scrolled {
 
   .header-content {
     .logo {
-      filter: invert(100%)
+      background-image: url(../assets/images/YourTour-dark.svg);
     }
 
     .mid-section {
@@ -247,12 +251,44 @@ header.scrolled {
   }
 }
 
+.choose {
+  width: 700px;
+  height: 142px;
+  margin-bottom: 100px;
+
+  .title {
+    text-align: center;
+    color: $black;
+    margin-bottom: 35px;
+  }
+
+  .selector {
+    display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    .selector-button {
+      color: $black;
+      background-color: transparent;
+      border-color: transparent;
+      border: none;
+      padding: 0 0;
+      font-family: $font-stack;
+    }
+  }
+}
+
 .tiles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
   width: 100%;
   .tile {
     height: 531px;
     width: 370px;
     border-radius: 50px;
+    margin-bottom: 30px;
 
     .title {
       color: white;
@@ -270,10 +306,14 @@ header.scrolled {
     }
 
     .more {
-      color: white;
       padding-bottom: 50px;
       padding-left: 50px;
       bottom: 0px;
+      color: white;
+      background-color: transparent;
+      border-color: transparent;
+      border: none;
+      font-family: $font-stack;
     }
 
     .more::after {
@@ -281,6 +321,8 @@ header.scrolled {
       display: inline-block;
       width: 24px;
       height: 26px;
+      vertical-align: text-top;
+      margin-left: 15px;
     }
   }
 
@@ -323,20 +365,6 @@ header.scrolled {
 
 }
 
-.choose {
-  width: 700px;
-  height: 142px;
-  margin-bottom: 100px;
-  .title {
-    text-align: center;
-  }
-  .selector {
-    .selector-button {
-
-    }
-  }
-}
-
 .col-a {
   width: 1170px;
   display: flex;
@@ -347,6 +375,8 @@ header.scrolled {
 
 section {
   margin-bottom: 135px;
-  width: 100%
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
