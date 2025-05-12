@@ -39,6 +39,7 @@ h1 {
   line-height: 109%;
   /* or 105px */
   letter-spacing: 0.02em;
+  font-variant-ligatures: none;
 
   /* Black */
   color: $black;
@@ -58,7 +59,7 @@ h2 {
   font-size: 59px;
   line-height: 124%;
   /* or 73px */
-  letter-spacing: default;
+  // letter-spacing: default;
 }
 
 h3 {
@@ -126,11 +127,11 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 100%;
   justify-content: center;
   height: 88px;
   z-index: 1000;
-  transition: background-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out; 
+  transition: background-color 0.3s ease-in-out, backdrop-filter 0.3s ease-in-out;
 
   .header-content {
     display: flex;
@@ -178,19 +179,22 @@ header {
 header.scrolled {
   background-color: #f3efe860;
 
-  backdrop-filter: blur(54px); 
+  backdrop-filter: blur(54px);
   -webkit-backdrop-filter: blur(54px);
+
   .header-content {
     .logo {
       filter: invert(100%)
     }
+
     .mid-section {
       .header-button {
         color: $black;
       }
     }
+
     .phone-number {
-      color: $black;  
+      color: $black;
     }
   }
 }
@@ -198,7 +202,7 @@ header.scrolled {
 .head-column {
   /* header-img */
 
-  width: 100vw;
+  width: 100%;
   height: 831px;
   background-size: cover;
   background-position: center center;
@@ -225,10 +229,10 @@ header.scrolled {
 
   .head-p {
     color: white;
-    // Consider adding margin-bottom if needed
     margin-bottom: 50px;
     width: 562px;
-    margin: 0 auto; /* Центрирует блочный элемент по горизонтали */
+    margin: 0 auto;
+    /* Центрирует блочный элемент по горизонтали */
   }
 
   .head-button {
@@ -244,22 +248,115 @@ header.scrolled {
 }
 
 .tiles {
-  .tile{
-    .title{
+  width: 100%;
+  .tile {
+    height: 531px;
+    width: 370px;
+    border-radius: 50px;
+
+    .title {
       color: white;
+      padding-top: 50px;
+      padding-left: 50px;
+      padding-right: 51px;
+      margin-bottom: 16px;
     }
+
     .price {
       color: white;
-    };
+      padding-left: 50px;
+      padding-right: 50px;
+      margin-bottom: 277px;
+    }
+
     .more {
       color: white;
+      padding-bottom: 50px;
+      padding-left: 50px;
+      bottom: 0px;
+    }
+
+    .more::after {
+      content: url(../assets/images/arrow\ bt.png);
+      display: inline-block;
+      width: 24px;
+      height: 26px;
+    }
+  }
+
+  .a {
+    background:
+      center / contain no-repeat linear-gradient(360deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.06) 48.44%, rgba(0, 0, 0, 0.5) 100%),
+      center / contain no-repeat url(../assets/images/card\ tour\ photo-1.jpg);
+  }
+
+  .b {
+    background:
+      center / contain no-repeat linear-gradient(360deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.06) 48.44%, rgba(0, 0, 0, 0.5) 100%),
+      center / contain no-repeat url(../assets/images/card\ tour\ photo-2.jpg);
+  }
+
+  .c {
+    background:
+      center / contain no-repeat linear-gradient(360deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.06) 48.44%, rgba(0, 0, 0, 0.5) 100%),
+      center / contain no-repeat url(../assets/images/card\ tour\ photo-3.jpg);
+  }
+
+  .d {
+    background:
+      center / contain no-repeat linear-gradient(360deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.06) 48.44%, rgba(0, 0, 0, 0.5) 100%),
+      center / contain no-repeat url(../assets/images/card\ tour\ photo-4.jpg);
+  }
+
+  .e {
+    background:
+      center / contain no-repeat linear-gradient(360deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.06) 48.44%, rgba(0, 0, 0, 0.5) 100%),
+      center / contain no-repeat url(../assets/images/card\ tour\ photo-5.jpg);
+  }
+
+  .f {
+    background:
+      center / contain no-repeat linear-gradient(360deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.06) 48.44%, rgba(0, 0, 0, 0.5) 100%),
+      center / contain no-repeat url(../assets/images/card\ tour\ photo-6.jpg);
+  }
+
+
+}
+
+.choose {
+  width: 700px;
+  height: 142px;
+  margin-bottom: 100px;
+  .title {
+    text-align: center;
+  }
+  .selector {
+    .selector-button {
+
     }
   }
 }
 
 .col-a {
   width: 1170px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
 }
+
 section {
   margin-bottom: 135px;
+  width: 100%
+}
+
+//no scrollbar
+
+body::-webkit-scrollbar {
+  display: none; /* Прячем элемент */
+}
+
+/* Если нужно скрыть скроллбар у конкретного блока с прокруткой (например, у div) */
+.my-scrollable-block::-webkit-scrollbar {
+  display: none;
 }
