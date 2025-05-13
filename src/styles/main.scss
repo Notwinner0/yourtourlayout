@@ -3,10 +3,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 //colors
-$primary-color: #3498db;
+// $primary-color: #3498db;
 $body-bg: #F9F7F4;
 
 $black: #1B1F2B;
+$gray-300: #A6A6A6;
 
 // font
 $font-stack: 'Roboto',
@@ -264,9 +265,10 @@ header.scrolled {
 
   .selector {
     display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+
     .selector-button {
       color: $black;
       background-color: transparent;
@@ -284,6 +286,7 @@ header.scrolled {
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
+
   .tile {
     height: 531px;
     width: 370px;
@@ -379,4 +382,20 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.construct {
+  width: 458px;
+  height: 159px;
+  margin-bottom: 100px;
+
+  .title {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  div {
+    color: $gray-300;
+    text-align: center;
+  }
 }
