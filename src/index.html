@@ -93,45 +93,64 @@
         </section>
         <!-- Собери свой тур -->
         <section>
-            <div class="construct">
-                <h2 class="title">Собери свой тур</h2>
-                <div class="p-normal">Идейные соображения высшего порядка, а также рамки и место обучения кадров</div>
-            </div>
-            <form action="" method="get">
-                <div class="form">
-                    <legend for="name" class="p-normal">
-                        Имя
-                    </legend>
-                    <input type="text" name="name" placeholder="Введите Ваше имя" required class="p-normal">
-                    <legend for="direction" class="p-normal">
-                        Направление
-                    </legend>
-                    <select name="direction" required class="p-normal">
-                        <option value="chosen">
-                            Пункт выбран
-                        </option>
-                        <option value="none">
-                            placeholder, no data supplied
-                        </option>
-                    </select>
-                    <legend for="email" class="p-normal">
-                        Email
-                    </legend>
-                    <input type="text" name="email" placeholder="example@mail.com" required class="p-normal">
-                    <legend for="phone" class="p-normal">
-                        Телефон
-                    </legend>
-                    <input type="text" name="phone" placeholder="+ 7 (___)___-__-__" required class="p-normal">
-                    <legend for="departure" class="p-normal">
-                        Дата от
-                    </legend>
-                    <input type="date" name="departure" placeholder="ДД.ММ.ГГГГ" required class="p-normal">
-                    <legend for="arrival" class="p-normal">
-                        Дата до
-                    </legend>
-                    <input type="date" name="arrival" placeholder="ДД.ММ.ГГГГ" required class="p-normal">
+            <div class="col-a">
+                <div class="construct">
+                    <h2 class="title">Собери свой тур</h2>
+                    <div class="p-normal">Идейные соображения высшего порядка, а&nbsp;также рамки и место обучения кадров
+                    </div>
                 </div>
-            </form>
+                <form action="" method="get">
+                    <div class="form">
+                        <div>
+                            <legend for="name" class="p-normal">
+                                Имя
+                            </legend>
+                            <input type="text" name="name" placeholder="Введите Ваше имя" required class="p-normal">
+                        </div>
+                        <div>
+                            <legend for="direction" class="p-normal">
+                                Направление
+                            </legend>
+                            <select name="direction" required class="p-normal">
+                                <option value="" disabled selected>Куда хотите ехать</option>
+                                <option value="chosen">
+                                    Пункт выбран
+                                </option>
+                            </select>
+                        </div>
+                        <div>
+                            <legend for="email" class="p-normal">
+                                Email
+                            </legend>
+                            <input type="text" name="email" placeholder="example@mail.com" required class="p-normal">
+                        </div>
+                        <div>
+                            <legend for="phone" class="p-normal">
+                                Телефон
+                            </legend>
+                            <input type="text" name="phone" placeholder="+ 7 ( _ _ _ ) _ _ _ - _ _ - _ _" required class="p-normal">
+                        </div>
+                        <div>
+                            <legend for="departure" class="p-normal">
+                                Дата от
+                            </legend>
+                            <input type="date" name="departure" placeholder="ДД.ММ.ГГГГ" required class="p-normal">
+                        </div>
+                        <div>
+                            <legend for="arrival" class="p-normal">
+                                Дата до
+                            </legend>
+                            <input type="date" name="arrival" placeholder="ДД.ММ.ГГГГ" required class="p-normal">
+                        </div>
+                        <div>
+                            <legend for="comment" class="p-normal">
+                                Комментарий
+                            </legend>
+                            <textarea name="comment" placeholder="" class="p-normal"></textarea>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </section>
         <!-- Отзывы наших путешественников -->
         <section>

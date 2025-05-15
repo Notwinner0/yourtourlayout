@@ -13,7 +13,7 @@ module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
 
   return {
-    entry: './src/index.js',
+    entry: './src/index.js', // Главная точка входа, предположим, что agreement.html использует те же скрипты/стили
     output: {
       filename: isProduction ? 'js/[name].[contenthash].js' : 'js/[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
@@ -28,10 +28,23 @@ module.exports = (env, argv) => {
         directory: path.join(__dirname, 'dist'),
       },
       compress: true,
-      port: 8080,
+      port: 8080, // Изменено на 8090
       open: true,
       hot: true,
-      historyApiFallback: true,
+      // Настройка historyApiFallback для обработки маршрутов без расширения .html
+      historyApiFallback: {
+        rewrites: [
+          // Перенаправляем /agreement на agreement.html
+          { from: /^\/agreement$/, to: '/agreement.html' },
+          // Оставляем стандартное перенаправление для всех остальных путей (если это SPA)
+          // Если это многостраничное приложение без SPA роутинга, возможно, historyApiFallback: true
+          // достаточно, но явное указание реврайтов для конкретных файлов надежнее.
+          // Если вам нужен обычный доступ к файлам (например, /about.html), то этот рерайт не нужен
+          // и можно просто обращаться по полному имени файла.
+          // Если вы используете SPA роутинг для index.html, оставьте этот рерайт:
+          { from: /./, to: '/index.html' },
+        ],
+      },
     },
 
     resolve: {
@@ -45,10 +58,9 @@ module.exports = (env, argv) => {
       rules: [
         {
           test: /\.js$/,
-          // !!! ИСПРАВЛЕНО: Явно исключаем node_modules и виртуальные директории PnP !!!
           exclude: [
-            /node_modules/, // Стандартное исключение
-            /\.yarn[\\\/].*?[\\\/]virtual[\\\/]/ // Исключаем виртуальные директории Yarn PnP
+            /node_modules/,
+            /\.yarn[\\\/].*?[\\\/]virtual[\\\/]/
           ],
           use: {
             loader: 'babel-loader',
@@ -116,22 +128,36 @@ module.exports = (env, argv) => {
     },
 
     plugins: [
+      // Плагин для index.html
       new HtmlWebpackPlugin({
-        template: './src/index.html',
+        template: './src/index.html', // Убедитесь, что этот файл существует
         filename: 'index.html',
         minify: isProduction,
+        // chunks: ['main'], // Укажите чанки, если у вас несколько точек входа
+      }),
+      // Плагин для agreement.html
+      new HtmlWebpackPlugin({
+        template: './src/agreement.html', // *** Создайте этот файл ***
+        filename: 'agreement.html',     // Имя выходного файла в директории dist
+        minify: isProduction,
+        // chunks: ['main'], // Укажите чанки, если agreement.html использует тот же JS что и index.html
+                               // Если agreement.html полностью статичен, используйте chunks: []
       }),
       new MiniCssExtractPlugin({
         filename: isProduction ? 'css/[name].[contenthash].css' : 'css/[name].bundle.css',
       }),
+      // CleanWebpackPlugin не обязателен в devServer, но полезен для сборки продакшена
+      // new CleanWebpackPlugin(), // Обычно добавляют его для production сборки
     ],
 
     optimization: {
       minimizer: [
         new CssMinimizerPlugin(),
+        // Добавьте TerserPlugin сюда для минимизации JS в production, если он не включен по умолчанию
+        // new TerserPlugin(),
       ],
       splitChunks: {
-         chunks: 'all',
+          chunks: 'all',
       },
     },
 
