@@ -96,7 +96,8 @@
             <div class="col-a">
                 <div class="construct">
                     <h2 class="title">Собери свой тур</h2>
-                    <div class="p-normal">Идейные соображения высшего порядка, а&nbsp;также рамки и место обучения кадров
+                    <div class="p-normal">Идейные соображения высшего порядка, а&nbsp;также рамки и место обучения
+                        кадров
                     </div>
                 </div>
                 <form action="" method="get">
@@ -128,7 +129,8 @@
                             <legend for="phone" class="p-normal">
                                 Телефон
                             </legend>
-                            <input type="text" name="phone" placeholder="+ 7 ( _ _ _ ) _ _ _ - _ _ - _ _" required class="p-normal">
+                            <input type="tel" name="phone" placeholder="+ 7 ( _ _ _ ) _ _ _ - _ _ - _ _" required
+                                class="p-normal">
                         </div>
                         <div>
                             <legend for="departure" class="p-normal">
@@ -147,6 +149,10 @@
                                 Комментарий
                             </legend>
                             <textarea name="comment" placeholder="" class="p-normal"></textarea>
+                        </div>
+                        <div>
+                            <legend class="p-normal">Вам есть 18 лет?</legend>
+                            <div><input type="radio" id="yes" name="adult" value="yes"><label for="yes" class="p-normal">Да</label></div><div><input type="radio" id="no" name="adult" value="no"><label for="no" class="p-normal">Нет</label></div>
                         </div>
                     </div>
                 </form>
