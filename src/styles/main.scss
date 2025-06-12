@@ -554,7 +554,7 @@ form {
 
       // border-radius: 50%;
 
-      transition: 0.2s all linear;
+      // transition: 0.2s all linear;
       outline: none;
       background: url(../assets/images/radiobutton.svg);
       position: relative;
@@ -565,7 +565,7 @@ form {
       // }
 
       &:checked {
-        transition: 0.2s all linear;
+        // transition: 0.2s all linear;
         background: url(../assets/images/radiobutton-a.svg);
       }
     }
@@ -578,6 +578,14 @@ form {
       float: left;
       margin-right: 31px;
 
+    }
+
+    label[for="agreement"] {
+      color: $gray-300;
+      a {
+        color: $black;
+        text-decoration: none;
+      }
     }
   }
 }
