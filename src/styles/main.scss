@@ -13,7 +13,8 @@ $green-400: #286562;
 $green-100: #E0F0E5;
 
 // font
-$font-stack: 'Roboto', sans-serif;
+$font-stack: 'Roboto',
+sans-serif;
 $font-size: 16px;
 
 // universal
@@ -395,9 +396,9 @@ section {
   align-items: center;
 }
 
-.construct {
-  width: 458px;
-  height: 159px;
+.titular {
+  width: auto;
+  height: auto;
   margin-bottom: 100px;
 
   .title {
@@ -591,7 +592,7 @@ legend {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    
+
     outline: none;
     background: url(../assets/images/checkbox.svg);
     position: relative;
@@ -626,9 +627,47 @@ legend {
       background-color: $green-400;
       margin-right: 30px;
     }
+
     &.b {
       color: $green-400;
       background-color: $green-100;
     }
+  }
+}
+
+.review {
+  box-sizing: border-box;
+  width: 570px;
+  height: 673px;
+  background-color: $beige-200;
+  border-radius: 50px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  float: left;
+
+  &.a {
+    margin-right: 30px;
+  }
+
+  .card-bottom {
+    display: inline-block;
+    height: 75px;
+  }
+
+  img {
+    border-radius: 100%;
+    width: 75px;
+    vertical-align: top;
+    float: right;
+  }
+
+  h3 {
+    margin-bottom: 8px;
+  }
+
+  .p-small {
+    color: $gray-300;
   }
 }
