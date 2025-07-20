@@ -671,3 +671,20 @@ legend {
     color: $gray-300;
   }
 }
+
+.images {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 30px;
+  div {
+    display: flex;
+    column-gap: 30px;
+  }
+
+  img {
+    height: 301px;
+    border-radius: 50px;
+  }
+}
