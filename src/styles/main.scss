@@ -30,6 +30,7 @@ body {
   background: $body-bg;
   font-family: $font-stack;
   font-size: $font-size;
+  scrollbar-gutter: stable;
 }
 
 main {
@@ -674,17 +675,33 @@ legend {
 
 .images {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   justify-content: center;
   row-gap: 30px;
+  align-items: center;
+  margin: 0 30px 0 30px;
+
   div {
     display: flex;
     column-gap: 30px;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    // justify-content: center;
   }
 
   img {
     height: 301px;
     border-radius: 50px;
+    object-fit: cover;
+
+  }
+
+  .a>img {
+    width: calc(25% - 22.5px);
+  }
+
+  .b>img {
+    width: calc(20% - 24px);
   }
 }
