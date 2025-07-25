@@ -139,7 +139,12 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         template: './src/index.html', // Убедитесь, что этот файл существует
         filename: 'index.html',
-        minify: isProduction,
+        minify: isProduction ? {
+          removeAttributeQuotes: false,
+          collapseWhitespace: true,
+          removeComments: true,
+        } : false,
+        
         // chunks: ['main'], // Укажите чанки, если у вас несколько точек входа
       }),
       // Плагин для agreement.html
