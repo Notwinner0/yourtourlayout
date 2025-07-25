@@ -335,7 +335,6 @@ header.scrolled {
       center / contain no-repeat url(../assets/images/card\ tour\ photo-6.jpg);
     margin-bottom: 0px;
   }
-
 }
 
 .tile {
@@ -708,13 +707,14 @@ legend {
     width: calc(20% - 24px);
   }
 }
+
 .big-tile {
   @extend .tile;
   width: 100%;
   height: 567px;
   margin-bottom: 50px;
   .title {
-    padding: 60px 0 8 60px;
+    padding: 60px 0 0 60px;
   }
 
   .desc {
@@ -769,5 +769,81 @@ legend {
     background:
       center / cover linear-gradient(270deg, rgba(0, 0, 0, 0) 0.01%, rgba(0, 0, 0, 0.2) 100%),
       center / cover url(../assets/images/story\ photo-3.jpg);
+      margin-bottom: 0px;
+  }
+}
+
+.frow {
+  display: flex;
+    flex-direction: row;
+    width: 771px;
+    align-items: center;
+  
+  img {
+    width: 370px;
+    height: 370px;
+    border-radius: 50px;
+    margin-right: 30px;
+  }
+  div>p {
+    color: $gray-300;
+    a {
+      color: $black;
+      background-color: transparent;
+      border-color: transparent;
+      border: none;
+      padding: 0 0;
+      font-family: $font-stack;
+      text-decoration: none;
+    }
+  }
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 88px;
+  width: 100%;
+  background-color: $beige-200;
+
+  div {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    .l {
+      color: $gray-300;
+      margin-right: 538px;
+      order: -1;
+    }
+
+    .r>a {
+      color: $black;
+      text-decoration: none;
+    }
+
+    a:before {
+      display: inline-block;
+      width: 26px;
+      height: 26px;
+      vertical-align: middle;
+      margin-right: 10px;
+    }
+
+    a:nth-child(1):before {
+      content: url(../assets/images/telegram-plane-svgrepo-com\ 1.png);
+    }
+
+    a:nth-child(2):before {
+      content: url(../assets/images/fb.png);
+      margin-left: 25px;
+    }
+
+    a:nth-child(3):before {
+      content: url(../assets/images/vk.png);
+      margin-left: 25px;
+    }
   }
 }
