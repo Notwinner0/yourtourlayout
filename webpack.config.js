@@ -120,6 +120,7 @@ module.exports = (env, argv) => {
                   ],
                 },
                 minimize: isProduction,
+                removeAttributeQuotes: false, // Отключить удаление кавычек у атрибутов
               },
             },
           ],
