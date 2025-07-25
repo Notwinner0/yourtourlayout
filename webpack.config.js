@@ -119,8 +119,14 @@ module.exports = (env, argv) => {
                     },
                   ],
                 },
-                minimize: isProduction,
-                removeAttributeQuotes: false, // Отключить удаление кавычек у атрибутов
+                // Правильная настройка minimize
+                minimize: isProduction ? {
+                  // Указываем `removeAttributeQuotes: false` для предотвращения удаления кавычек
+                  removeAttributeQuotes: false,
+                  // Также можно добавить другие полезные опции, если нужны
+                  collapseWhitespace: true,
+                  removeComments: true,
+                } : false,
               },
             },
           ],
