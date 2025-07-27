@@ -30,6 +30,12 @@ document.addEventListener('DOMContentLoaded', function() {
     checkScroll(); // Проверка при загрузке страницы
 });
 
+document.querySelectorAll('.selector-button').forEach(button => {
+  button.onclick = () => {
+    document.querySelector('.selector-button.active')?.classList.remove('active');
+    button.classList.add('active');
+  };
+});
 
 const special = {
     consoleText: ((t = String) => console.log(t)), // print text
