@@ -28,6 +28,10 @@ $font-size: 16px;
   width: 100%;
 }
 
+// adapt
+
+$laptop: 1200px;
+
 // main
 html,
 body {
@@ -44,6 +48,7 @@ main {
   // flex-direction: column;
   // align-items: center;
   background-color: $body-bg;
+  width: 100vw;
 }
 
 // univ
@@ -178,6 +183,9 @@ header {
     align-items: center;
     justify-content: space-between;
     width: 1168px;
+    @media (max-width: $laptop) {
+      width: 910px;
+    }
 
     .logo {
       background-image: url(../assets/images/YourTour.svg);
@@ -193,6 +201,10 @@ header {
       flex-direction: row;
       flex-wrap: nowrap;
       justify-content: space-between;
+
+      @media (max-width: $laptop) {
+        width: 409px;
+      }
 
       .header-button {
         color: white;
@@ -346,6 +358,11 @@ header.scrolled {
   flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
+  
+  @media (max-width: $laptop) {
+    justify-content: center;
+    column-gap: 18px;
+  }
 
   .a {
     background:
@@ -396,6 +413,11 @@ header.scrolled {
   flex-direction: column;
 
   transition: background 300ms ease 0s;
+
+  @media (max-width: $laptop) {
+    width: 450px;
+    height: 531px;  
+  }
 
   .title {
     color: white;
@@ -459,6 +481,9 @@ header.scrolled {
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
+  @media (max-width: $laptop) {
+    width: 100vw;
+  }
 }
 
 section {
@@ -492,6 +517,15 @@ legend {
   height: 28px;
 }
 
+form {
+  @media (max-width: $laptop) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+}
+
 .form {
   display: flex;
   flex-direction: row;
@@ -502,6 +536,11 @@ legend {
   column-gap: 30px;
   row-gap: 33px;
 
+  @media (max-width: $laptop) {
+    padding: 60px;
+    column-gap: 20px;
+    width: calc(918px - 120px);
+  }
 
 
   input[type="text"],
@@ -517,6 +556,10 @@ legend {
     width: 500px;
     box-sizing: border-box;
     height: 68px;
+
+    @media (max-width: $laptop) {
+      width: 389px;
+    }
 
     &::placeholder {
       color: $gray-300;
@@ -546,6 +589,10 @@ legend {
     appearance: base-select;
     box-sizing: border-box;
     height: 68px;
+    
+    @media (max-width: $laptop) {
+      width: 389px;
+    }
 
     &:required:invalid {
       color: $gray-300;
@@ -576,6 +623,10 @@ legend {
   }
 
   input[type="date"] {
+        
+    @media (max-width: $laptop) {
+      width: 389px;
+    }
     &::-webkit-calendar-picker-indicator {
       // position: absolute;
       // left: 0;
@@ -594,7 +645,6 @@ legend {
       font-family: $font-stack;
     }
   }
-
   textarea {
     resize: none;
     color: $black;
@@ -604,10 +654,13 @@ legend {
     background: $body-bg;
     border: 1px solid $beige-200;
     border-radius: 10px;
-    width: 1030px;
     height: 152px;
     box-sizing: border-box;
     margin-bottom: -4px;
+    width: 1030px;
+    @media (max-width: $laptop) {
+      width: 798px;
+    }
 
     &:hover {
       background: $beige-200;
@@ -620,7 +673,6 @@ legend {
       border-color: $gray-300;
     }
   }
-
   input[type="radio"] {
     margin: 0px 11px 0px 0px;
     height: 26px;
@@ -717,6 +769,7 @@ legend {
       }
     }
   }
+
 }
 
 .review {
@@ -730,9 +783,22 @@ legend {
   flex-direction: column;
   justify-content: space-between;
   float: left;
+  @media (max-width: $laptop) {
+    width: 450px;
+    height: 841px;
+    &:nth-child(1) {
+      margin-left: 53px;
+    }
+    &:nth-child(2) {
+      margin-right: 53px;
+    }
+  }
 
   &.a {
     margin-right: 30px;
+    @media (max-width: $laptop) {
+      margin-right: 18px;
+    }
   }
 
   .card-bottom {
@@ -758,35 +824,75 @@ legend {
 
 .images {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   row-gap: 30px;
+  column-gap: 30px;
   align-items: center;
   margin: 0 30px 0 30px;
+  flex-wrap: wrap;
 
-  div {
-    display: flex;
-    column-gap: 30px;
-    width: 100%;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    // justify-content: center;
+  @media (max-width: $laptop) {
+    column-gap: 20px;
+    margin: 0 20px 0 20px;
   }
+
+  // div {
+  //   display: flex;
+  //   column-gap: 30px;
+  //   width: 100%;
+  //   flex-direction: row;
+  //   flex-wrap: nowrap;
+  //   // justify-content: center;
+  // }
 
   img {
-    height: 301px;
+    height: 300px;
     border-radius: 50px;
     object-fit: cover;
-
   }
 
-  .a>img {
+  img:nth-child(-n+4) {
     width: calc(25% - 22.5px);
   }
 
-  .b>img {
+  img:nth-child(n+5):nth-child(-n+9) {
     width: calc(20% - 24px);
   }
+
+  img:nth-child(n+10):nth-child(-n+13) {
+    width: calc(25% - 22.5px);
+  }
+
+  @media (max-width: $laptop) {
+    img:nth-child(2) {
+      display: none;
+    }
+    img:nth-child(7) {
+      display: none;
+    }
+    img:nth-child(13) {
+      display: none;
+    }
+    img:nth-child(-n+4) {
+      width: calc(33.3% - 13.333px);
+    }
+
+    img:nth-child(n+5):nth-child(-n+9) {
+      width: calc(25% - 15px);
+    }
+
+    img:nth-child(n+10):nth-child(-n+13) {
+      width: calc(33.3% - 13.333px);
+    }
+  }
+  // .a>img {
+  //   width: calc(25% - 22.5px);
+  // }
+
+  // .b>img {
+  //   width: calc(20% - 24px);
+  // }
 }
 
 .big-tile {
@@ -794,6 +900,10 @@ legend {
   width: 100%;
   height: 567px;
   margin-bottom: 50px;
+
+  @media (max-width: $laptop) {
+    width: 918px;
+  }
 
   .title {
     padding: 60px 0 0 60px;
@@ -846,13 +956,13 @@ legend {
   &.b {
     background:
       center / 100% linear-gradient(270deg, rgba(0, 0, 0, 0) 0.01%, rgba(0, 0, 0, 0.2) 100%),
-      center / 100% url(../assets/images/story\ photo-2.jpg);
+      center / cover url(../assets/images/story\ photo-2.jpg);
   }
 
   &.c {
     background:
       center / 100% linear-gradient(270deg, rgba(0, 0, 0, 0) 0.01%, rgba(0, 0, 0, 0.2) 100%),
-      center / 100% url(../assets/images/story\ photo-3.jpg);
+      center / cover url(../assets/images/story\ photo-3.jpg);
       margin-bottom: 0px;
   }
 
@@ -895,6 +1005,11 @@ footer {
   width: 100%;
   background-color: $beige-200;
 
+  @media (max-width: $laptop) {
+    width: 918px;
+    padding: 0 53px 0 53px;
+  }
+
   div {
     margin: auto;
     display: flex;
@@ -905,6 +1020,9 @@ footer {
       color: $gray-300;
       margin-right: 538px;
       order: -1;
+      @media (max-width: $laptop) {
+        margin-right: 288px;
+      }
     }
 
     .r>a {
