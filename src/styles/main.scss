@@ -42,6 +42,8 @@ body {
   font-family: $font-stack;
   font-size: $font-size;
   scrollbar-gutter: stable;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 main {
