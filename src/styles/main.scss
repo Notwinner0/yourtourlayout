@@ -962,7 +962,14 @@ form {
   }
 
 }
-
+.x {
+  @media (max-width: $phablet) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}
 .review {
   box-sizing: border-box;
   width: 570px;
@@ -1015,6 +1022,9 @@ form {
   .card-bottom {
     display: inline-block;
     height: 75px;
+    @media (max-width: $phablet) {
+      height: 59px;
+    }
   }
 
   img {
@@ -1150,16 +1160,40 @@ form {
 
 .big-tile {
   @extend .tile;
+  position: relative;
+  overflow: hidden;
   width: 100%;
   height: 567px;
   margin-bottom: 50px;
 
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 300ms ease;
+    z-index: 0;
+  }
+
+  &:hover::before {
+    transform: scale(1.2);
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
   @media (max-width: $laptop) {
     width: 918px;
   }
+
   @media (max-width: $phablet) {
     width: 318px;
     border-radius: 20px;
+    height: 455px;
   }
 
   .title {
@@ -1210,40 +1244,35 @@ form {
       display: none;
     }
     a {
-      // color: white;
       background-color: transparent;
       border-color: transparent;
       border: none;
       padding: 0 0;
       font-family: $font-stack;
-      // text-decoration: none;
-
     }
   }
 
-  &.a {
-    background:
-      center / 100% linear-gradient(270deg, rgba(0, 0, 0, 0) 0.01%, rgba(0, 0, 0, 0.2) 100%),
-      center / cover url(../assets/images/story\ photo-1.jpg);
+  // Фоновые модификаторы
+  &.a::before {
+    background-image:
+      linear-gradient(270deg, rgba(0, 0, 0, 0) 0.01%, rgba(0, 0, 0, 0.2) 100%),
+      url(../assets/images/story\ photo-1.jpg);
   }
 
-  &.b {
-    background:
-      center / 100% linear-gradient(270deg, rgba(0, 0, 0, 0) 0.01%, rgba(0, 0, 0, 0.2) 100%),
-      center / cover url(../assets/images/story\ photo-2.jpg);
+  &.b::before {
+    background-image:
+      linear-gradient(270deg, rgba(0, 0, 0, 0) 0.01%, rgba(0, 0, 0, 0.2) 100%),
+      url(../assets/images/story\ photo-2.jpg);
   }
 
-  &.c {
-    background:
-      center / 100% linear-gradient(270deg, rgba(0, 0, 0, 0) 0.01%, rgba(0, 0, 0, 0.2) 100%),
-      center / cover url(../assets/images/story\ photo-3.jpg);
-      margin-bottom: 0px;
-  }
-
-  &:hover {
-    background-size: 100%, 120%;
+  &.c::before {
+    background-image:
+      linear-gradient(270deg, rgba(0, 0, 0, 0) 0.01%, rgba(0, 0, 0, 0.2) 100%),
+      url(../assets/images/story\ photo-3.jpg);
+    margin-bottom: 0px;
   }
 }
+
 
 .frow {
   display: flex;
@@ -1310,6 +1339,7 @@ footer {
   @media (max-width: $phablet) {
     width: 317px;
     padding: 0 21.5px 0 21.5px;
+    height: 95px;
   }
 
   div {
