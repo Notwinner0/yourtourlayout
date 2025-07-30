@@ -31,6 +31,7 @@ $font-size: 16px;
 // adapt
 
 $laptop: 1200px;
+$phablet: 400px;
 
 // main
 html,
@@ -74,6 +75,12 @@ h1 {
   order: 1;
   align-self: stretch;
   flex-grow: 0;
+
+  @media (max-width: $phablet) {
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 112%;
+  }
 }
 
 h2 {
@@ -85,6 +92,13 @@ h2 {
   letter-spacing: 0em;
   /* or 73px */
   // letter-spacing: default;
+
+  @media (max-width: $phablet) {
+    font-size: 34px;
+    line-height: 112%;
+    letter-spacing: 0.02em;
+
+  }
 }
 
 h3 {
@@ -96,6 +110,13 @@ h3 {
   line-height: 122%;
   letter-spacing: 0em;
   /* or 43px */
+
+  @media (max-width: $phablet) {
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 120%;
+    letter-spacing: 0.04em;
+  }
 }
 
 .p-normal {
@@ -121,6 +142,10 @@ h3 {
   align-self: stretch;
   flex-grow: 0;
 
+  @media (max-width: $phablet) {
+    font-size: 16px;
+  }
+
 }
 
 .p-big {
@@ -133,6 +158,10 @@ h3 {
   font-variant-ligatures: normal;
   font-kerning: normal;
   /* identical to box height, or 28px */
+  @media (max-width: $phablet) {
+    font-size: 16px;
+    line-height: 142%;
+  }
 }
 
 .p-small {
@@ -145,6 +174,9 @@ h3 {
   /* or 24px */
   letter-spacing: -0.01em;
 
+  @media (max-width: $phablet) {
+    font-size: 16px;
+  }
 }
 
 .weblink {
@@ -170,7 +202,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   justify-content: center;
   height: 88px;
   z-index: 1000;
@@ -186,12 +218,20 @@ header {
     @media (max-width: $laptop) {
       width: 910px;
     }
+    @media (max-width: $phablet) {
+      width: 320px;
+    }
 
     .logo {
       background-image: url(../assets/images/YourTour.svg);
       background-size: cover;
+      background-position: center;
       width: 181.34px;
       height: 30.24px;
+      @media (max-width: $phablet) {
+        width: 133px;
+        height: 22px;
+      }
     }
 
     .mid-section {
@@ -204,6 +244,10 @@ header {
 
       @media (max-width: $laptop) {
         width: 409px;
+      }
+
+      @media (max-width: $phablet) {
+        display: none;
       }
 
       .header-button {
@@ -268,11 +312,19 @@ header.scrolled {
   flex-direction: column;
   align-items: center; // Horizontally centers the text wrapper and the button
 
+  @media (max-width: $phablet) {
+    height: 488px;
+    width: 100vw;
+  }
+
   .head-text-content {
     text-align: center; // Centers the text lines within the wrapper
     margin-bottom: 50px;
     margin-top: (119px + 88px);
-    /* Add space between the text block and the button */
+    @media (max-width: $phablet) {
+      margin-bottom: 40px;
+       margin-top: (52px + 88px);
+    }
   }
 
   .head-title {
@@ -280,6 +332,11 @@ header.scrolled {
     max-width: 100%; // Add max-width to prevent overflow
     width: 767px;
     margin-bottom: 50px;
+    @media (max-width: $phablet) {
+      width: 100vw;
+      margin-bottom: 40px;
+      height: auto;
+    }
   }
 
   .head-p {
@@ -287,7 +344,10 @@ header.scrolled {
     margin-bottom: 50px;
     width: 562px;
     margin: 0 auto;
-    /* Центрирует блочный элемент по горизонтали */
+    @media (max-width: $phablet) {
+      width: 310px;
+      height: auto;
+    }
   }
 
 }
@@ -301,6 +361,10 @@ header.scrolled {
   border: none;
   border-radius: 10px;
   margin: 0 auto;
+  @media (max-width: $phablet) {
+    width: 114px;
+    height: 33px;
+  }
 
   &:hover {
     background-color: $orange-200;
@@ -317,11 +381,22 @@ header.scrolled {
   width: 700px;
   height: 142px;
   margin-bottom: 100px;
+  @media (max-width: $phablet) {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
 
   .title {
     text-align: center;
     color: $black;
     margin-bottom: 35px;
+    @media (max-width: $phablet) {
+      margin-bottom: 30px;
+      order: -1;
+    }
   }
 
   .selector {
@@ -329,6 +404,13 @@ header.scrolled {
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
+    @media (max-width: $phablet) {
+      flex-wrap: wrap;
+      row-gap: 10px;
+      width: calc(100% - 51.5px * 2);
+      justify-content: center;
+      column-gap: 10px;
+    }
   }
 }
 
@@ -367,40 +449,49 @@ header.scrolled {
   .a {
     background:
       center / 100% linear-gradient(360deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.06) 48.44%, rgba(0, 0, 0, 0.5) 100%),
-      center / 100% url(../assets/images/card\ tour\ photo-1.jpg);
+      center / cover url(../assets/images/card\ tour\ photo-1.jpg);
   }
 
   .b {
     background:
       center / 100% linear-gradient(360deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.06) 48.44%, rgba(0, 0, 0, 0.5) 100%),
-      center / 100% url(../assets/images/card\ tour\ photo-2.jpg);
+      center / cover url(../assets/images/card\ tour\ photo-2.jpg);
   }
 
   .c {
     background:
       center / 100% linear-gradient(360deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.06) 48.44%, rgba(0, 0, 0, 0.5) 100%),
-      center / 100% url(../assets/images/card\ tour\ photo-3.jpg);
+      center / cover url(../assets/images/card\ tour\ photo-3.jpg);
   }
 
   .d {
     background:
       center / 100% linear-gradient(360deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.06) 48.44%, rgba(0, 0, 0, 0.5) 100%),
-      center / 100% url(../assets/images/card\ tour\ photo-4.jpg);
+      center / cover url(../assets/images/card\ tour\ photo-4.jpg);
     margin-bottom: 0px;
+    @media (max-width: $phablet) {
+      margin-bottom: 30px;
+    }
   }
 
   .e {
     background:
       center / 100% linear-gradient(360deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.06) 48.44%, rgba(0, 0, 0, 0.5) 100%),
-      center / 100% url(../assets/images/card\ tour\ photo-5.jpg);
+      center / cover url(../assets/images/card\ tour\ photo-5.jpg);
     margin-bottom: 0px;
+    @media (max-width: $phablet) {
+      margin-bottom: 30px;
+    }
   }
 
   .f {
     background:
       center / 100% linear-gradient(360deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.06) 48.44%, rgba(0, 0, 0, 0.5) 100%),
-      center / 100% url(../assets/images/card\ tour\ photo-6.jpg);
+      center / cover url(../assets/images/card\ tour\ photo-6.jpg);
     margin-bottom: 0px;
+    @media (max-width: $phablet) {
+      margin-bottom: 30px;
+    }
   }
 }
 
@@ -419,19 +510,35 @@ header.scrolled {
     height: 531px;  
   }
 
+  @media (max-width: $phablet) {
+    width: 318px;
+    height: 318px; 
+    border-radius: 20px;
+  }
+
   .title {
     color: white;
     padding-top: 50px;
     padding-left: 50px;
     padding-right: 51px;
     margin-bottom: 16px;
+
+    @media (max-width: $phablet) {
+      padding: 25px 25px 0 25px;
+      margin-bottom: 13px;
+    }
   }
 
   .price {
     color: white;
     padding-left: 50px;
     padding-right: 50px;
+
     // margin-bottom: 277px;
+    @media (max-width: $phablet) {
+      padding: 0 25px 0 25px;
+      margin-bottom: 13px;
+    }
   }
 
   .more {
@@ -449,6 +556,12 @@ header.scrolled {
     width: 199px;
     height: 42px;
     border-radius: 50px;
+    @media (max-width: $phablet) {
+      margin-bottom: 30px;
+      margin-left: 30px;
+      height: 26px;
+      width: 123px;
+    }
   }
 
   .more::after {
@@ -456,7 +569,7 @@ header.scrolled {
     display: inline-block;
     width: 24px;
     height: 26px;
-    vertical-align: text-top;
+    vertical-align: middle;
     margin-left: 15px;
   }
 
@@ -492,6 +605,9 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media (max-width: $phablet) {
+    margin-bottom: 75px;
+  }
 }
 
 .titular {
@@ -499,9 +615,16 @@ section {
   height: auto;
   margin-bottom: 100px;
 
+  @media (max-width: $phablet) {
+    margin-bottom: 50px;
+  }
+
   .title {
     text-align: center;
     margin-bottom: 30px;
+    @media (max-width: $phablet) {
+      margin-bottom: 20px;
+    }
   }
 
   div {
@@ -540,6 +663,14 @@ form {
     padding: 60px;
     column-gap: 20px;
     width: calc(918px - 120px);
+    row-gap: 30px;
+  }
+
+  @media (max-width: $phablet) {
+    padding: 20px;
+    // column-gap: 20px;
+    width: calc(318px - 40px);
+    border-radius: 30px;
   }
 
 
@@ -559,6 +690,11 @@ form {
 
     @media (max-width: $laptop) {
       width: 389px;
+    }
+
+    @media (max-width: $phablet) {
+      width: 278px;
+      height: 43px;
     }
 
     &::placeholder {
@@ -594,6 +730,12 @@ form {
       width: 389px;
     }
 
+    @media (max-width: $phablet) {
+      width: 278px;
+      height: 46px;
+      padding: 11.5px 10px;
+    }
+
     &:required:invalid {
       color: $gray-300;
     }
@@ -608,6 +750,9 @@ form {
       background: url(../assets/images/ic-dropdown.svg);
       width: 26px;
       height: 26px;
+      @media (max-width: $phablet) {
+        margin-top: -1px;
+      }
     }
 
     &:hover {
@@ -627,6 +772,12 @@ form {
     @media (max-width: $laptop) {
       width: 389px;
     }
+
+    @media (max-width: $phablet) {
+      width: 278px;
+      height: 43px;
+    }
+
     &::-webkit-calendar-picker-indicator {
       // position: absolute;
       // left: 0;
@@ -662,6 +813,10 @@ form {
       width: 798px;
     }
 
+    @media (max-width: $phablet) {
+      width: 278px;
+    }
+
     &:hover {
       background: $beige-200;
       border-color: $beige-200;
@@ -688,6 +843,13 @@ form {
     outline: none;
     background: url(../assets/images/radiobutton.svg);
     position: relative;
+
+    @media (max-width: $phablet) {
+      width: 20px;
+      height: 20px;
+      background-size: cover;
+      background-position: center;
+    }
 
     // &:checked {
     //   background-color: white;
@@ -722,15 +884,36 @@ form {
     background: url(../assets/images/checkbox.svg);
     position: relative;
 
+    @media (max-width: $phablet) {
+      margin-right: 10px;
+      background-size: cover;
+      background-position: center;
+      width: 20px;
+      height: 20px;
+      vertical-align: top;
+    }
+
     &:checked {
       background: url(../assets/images/checkbox-a.svg);
     }
   }
 
+  .ch-wrap {
+    @media (max-width: $phablet) {
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+
   label[for="agreement"] {
+    display: inline-block;
     color: $gray-300;
     // margin: 1px 0px 1px 0px;
-    vertical-align: middle;
+    vertical-align: top;
+    @media (max-width: $phablet) {
+      width: 248px;
+      height: 69px;
+    }
   }
 
   .form-btn {
@@ -740,12 +923,20 @@ form {
     border: none;
     border-radius: 10px;
     margin: 0 auto;
-    padding: none;
+    padding: 0;
+    @media (max-width: $phablet) {
+      width: 132px;
+      height: 47px;
+      padding: 0;
+    }
 
     &.a {
       color: white;
       background-color: $green-400;
       margin-right: 30px;
+      @media (max-width: $phablet) {
+        margin-right: 10px;
+      }
       
       &:hover {
         background-color: $green-300;
@@ -794,10 +985,30 @@ form {
     }
   }
 
+  @media (max-width: $phablet) {
+    width: 318px;
+    height: 408px;
+    margin: 0;
+    &:nth-child(1) {
+      margin: 0 21px 0 21px;
+    }
+    &:nth-child(2) {
+      margin: 18px 21px 0 21px;
+      height: 592px;
+    }
+    padding: 20px;
+    border-radius: 20px;
+  }
+
   &.a {
     margin-right: 30px;
+
     @media (max-width: $laptop) {
       margin-right: 18px;
+    }
+
+    @media (max-width: $phablet) {
+      margin-right: unset;
     }
   }
 
@@ -837,6 +1048,12 @@ form {
     margin: 0 20px 0 20px;
   }
 
+  @media (max-width: $phablet) {
+    column-gap: 18px;
+    row-gap: 18px;
+    margin: 0 20px 0 20px;
+  }
+
   // div {
   //   display: flex;
   //   column-gap: 30px;
@@ -850,6 +1067,10 @@ form {
     height: 300px;
     border-radius: 50px;
     object-fit: cover;
+    @media (max-width: $phablet) {
+      height: 110px;
+      border-radius: 20px;
+    }
   }
 
   img:nth-child(-n+4) {
@@ -886,6 +1107,38 @@ form {
       width: calc(33.3% - 13.333px);
     }
   }
+
+  @media (max-width: $phablet) {
+    img:nth-child(2) {
+      display: none;
+    }
+    img:nth-child(3) {
+      display: none;
+    }
+    img:nth-child(6) {
+      display: none;
+    }
+    img:nth-child(7) {
+      display: none;
+    }
+    img:nth-child(12) {
+      display: none;
+    }
+    img:nth-child(13) {
+      display: none;
+    }
+    img:nth-child(-n+4) {
+      width: calc(50% - 9px);
+    }
+
+    img:nth-child(n+5):nth-child(-n+9) {
+      width: calc(33.3% - 12px);
+    }
+
+    img:nth-child(n+10):nth-child(-n+13) {
+      width: calc(50% - 9px);
+    }
+  }
   // .a>img {
   //   width: calc(25% - 22.5px);
   // }
@@ -904,15 +1157,27 @@ form {
   @media (max-width: $laptop) {
     width: 918px;
   }
+  @media (max-width: $phablet) {
+    width: 318px;
+    border-radius: 20px;
+  }
 
   .title {
     padding: 60px 0 0 60px;
+    @media (max-width: $phablet) {
+      padding: 30px 0 0 30px;
+      width: 263px;
+    }
   }
 
   .desc {
     @extend .price;
     width: 554px;
     padding-left: 60px;
+    @media (max-width: $phablet) {
+      width: 253px;
+      padding-left: 30px;
+    }
   }
 
   .more {
@@ -920,6 +1185,12 @@ form {
     padding: 0;
     margin-bottom: 53px;
     margin-left: 40px;
+    @media (max-width: $phablet) {
+      margin-bottom: 30px;
+      margin-left: 30px;
+      height: 26px;
+      width: 123px;
+    }
   }
 
   .foot {
@@ -935,6 +1206,9 @@ form {
     column-gap: 35px;
     order: 5;
     padding: 0 60px 60px 0;
+    @media (max-width: $phablet) {
+      display: none;
+    }
     a {
       // color: white;
       background-color: transparent;
@@ -950,7 +1224,7 @@ form {
   &.a {
     background:
       center / 100% linear-gradient(270deg, rgba(0, 0, 0, 0) 0.01%, rgba(0, 0, 0, 0.2) 100%),
-      center / 100% url(../assets/images/story\ photo-1.jpg);
+      center / cover url(../assets/images/story\ photo-1.jpg);
   }
 
   &.b {
@@ -973,26 +1247,49 @@ form {
 
 .frow {
   display: flex;
-    flex-direction: row;
-    width: 771px;
-    align-items: center;
-  
+  flex-direction: row;
+  width: 771px;
+  align-items: center;
+
+  @media (max-width: $phablet) {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
   img {
     width: 370px;
     height: 370px;
     border-radius: 50px;
     margin-right: 30px;
+
+    @media (max-width: $phablet) {
+      width: 130px;
+      height: 133px;
+      border-radius: 20px;
+      margin-right: unset;
+      margin-bottom: 30px;
+    }
   }
-  div>p {
-    color: $gray-300;
-    a {
-      // color: $black;
-      background-color: transparent;
-      border-color: transparent;
-      border: none;
-      padding: 0 0;
-      font-family: $font-stack;
-      // text-decoration: none;
+
+  div {
+    @media (max-width: $phablet) {
+      width: 291px;
+    }
+
+    p {
+      color: $gray-300;
+
+      a {
+        // color: $black;
+        background-color: transparent;
+        border-color: transparent;
+        border: none;
+        padding: 0 0;
+        font-family: $font-stack;
+        // text-decoration: none;
+      }
     }
   }
 }
@@ -1010,11 +1307,20 @@ footer {
     padding: 0 53px 0 53px;
   }
 
+  @media (max-width: $phablet) {
+    width: 317px;
+    padding: 0 21.5px 0 21.5px;
+  }
+
   div {
     margin: auto;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    @media (max-width: $laptop) {
+      flex-wrap: wrap;
+      margin: unset;
+    }
 
     .l {
       color: $gray-300;
@@ -1022,6 +1328,9 @@ footer {
       order: -1;
       @media (max-width: $laptop) {
         margin-right: 288px;
+      }
+      @media (max-width: $phablet) {
+        margin-right: 0;
       }
     }
 
@@ -1031,11 +1340,19 @@ footer {
     }
 
     a:before {
+      content: '';
+      // background-size: 100%;
       display: inline-block;
       width: 26px;
       height: 26px;
       vertical-align: middle;
       margin-right: 10px;
+
+      @media (max-width: $phablet) {
+        margin-right: 5px;
+        width: 22px;
+        height: 22px;
+      }
     }
 
     a:hover {
@@ -1044,17 +1361,25 @@ footer {
     }
 
     a:nth-child(1):before {
-      content: url(../assets/images/telegram-plane-svgrepo-com\ 1.png);
+      background: center / 100% url(../assets/images/telegram-plane-svgrepo-com\ 1.png);
     }
 
     a:nth-child(2):before {
-      content: url(../assets/images/fb.png);
+      background:  center / 100% url(../assets/images/fb.png);
       margin-left: 25px;
+      @media (max-width: $phablet) {
+        margin-left: 15px;
+        width: 21px;
+        height: 21px;
+      }
     }
 
     a:nth-child(3):before {
-      content: url(../assets/images/vk.png);
+      background:  center / 100% url(../assets/images/vk.png);
       margin-left: 25px;
+      @media (max-width: $phablet) {
+        margin-left: 15px;
+      }
     }
   }
 }
