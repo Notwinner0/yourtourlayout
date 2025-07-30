@@ -51,7 +51,7 @@ main {
   
   
   background-color: $body-bg;
-  width: 100vw;
+  width: 100%;
 }
 
 
@@ -1240,9 +1240,11 @@ form {
 
   .title {
     padding: 60px 0 0 60px;
+    margin-bottom: 37px;
     @media (max-width: $phablet) {
       padding: 30px 0 0 30px;
       width: 263px;
+      margin-bottom: 20px;
     }
   }
 
@@ -1253,6 +1255,10 @@ form {
     @media (max-width: $phablet) {
       width: 253px;
       padding-left: 30px;
+    }
+    ul {
+      padding-left: 29px;
+      margin-top: 23px;
     }
   }
 
@@ -1282,6 +1288,8 @@ form {
     column-gap: 35px;
     order: 5;
     padding: 0 60px 60px 0;
+    
+    margin-top: 10px;
     @media (max-width: $phablet) {
       display: none;
     }
@@ -1311,6 +1319,9 @@ form {
     background-image:
       linear-gradient(270deg, rgba(0, 0, 0, 0) 0.01%, rgba(0, 0, 0, 0.2) 100%),
       url(../assets/images/story\ photo-3.jpg);
+  }
+
+  &.c {
     margin-bottom: 0px;
   }
 }
@@ -1320,7 +1331,7 @@ form {
   display: flex;
   flex-direction: row;
   width: 771px;
-  align-items: center;
+  // align-items: center;
 
   @media (max-width: $phablet) {
     width: 100%;
@@ -1345,8 +1356,10 @@ form {
   }
 
   div {
+    padding-top: 102px;
     @media (max-width: $phablet) {
       width: 291px;
+      padding-top: 0;
     }
 
     p {

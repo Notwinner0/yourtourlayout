@@ -13,7 +13,7 @@ module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
 
   return {
-    entry: './src/index.js', // Главная точка входа, предположим, что agreement.html использует те же скрипты/стили
+    entry: './src/index.js',
     output: {
       filename: isProduction ? 'js/[name].[contenthash].js' : 'js/[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
@@ -28,20 +28,12 @@ module.exports = (env, argv) => {
         directory: path.join(__dirname, 'dist'),
       },
       compress: true,
-      port: 8080, // Изменено на 8090
+      port: 8080,
       open: true,
       hot: true,
-      // Настройка historyApiFallback для обработки маршрутов без расширения .html
       historyApiFallback: {
         rewrites: [
-          // Перенаправляем /agreement на agreement.html
           { from: /^\/agreement$/, to: '/agreement.html' },
-          // Оставляем стандартное перенаправление для всех остальных путей (если это SPA)
-          // Если это многостраничное приложение без SPA роутинга, возможно, historyApiFallback: true
-          // достаточно, но явное указание реврайтов для конкретных файлов надежнее.
-          // Если вам нужен обычный доступ к файлам (например, /about.html), то этот рерайт не нужен
-          // и можно просто обращаться по полному имени файла.
-          // Если вы используете SPA роутинг для index.html, оставьте этот рерайт:
           { from: /./, to: '/index.html' },
         ],
       },
@@ -93,6 +85,7 @@ module.exports = (env, argv) => {
           test: /\.(png|svg|jpg|jpeg|gif|woff|woff2|eot|ttf|otf)$/,
           type: 'asset/resource',
           generator: {
+            // Убедитесь, что favicon.svg также попадает в assets/
             filename: isProduction ? 'assets/[hash][ext][query]' : 'assets/[name][ext][query]'
           }
         },
@@ -119,11 +112,8 @@ module.exports = (env, argv) => {
                     },
                   ],
                 },
-                // Правильная настройка minimize
                 minimize: isProduction ? {
-                  // Указываем `removeAttributeQuotes: false` для предотвращения удаления кавычек
                   removeAttributeQuotes: false,
-                  // Также можно добавить другие полезные опции, если нужны
                   collapseWhitespace: true,
                   removeComments: true,
                 } : false,
@@ -135,41 +125,35 @@ module.exports = (env, argv) => {
     },
 
     plugins: [
-      // Плагин для index.html
       new HtmlWebpackPlugin({
-        template: './src/index.html', // Убедитесь, что этот файл существует
+        template: './src/index.html',
         filename: 'index.html',
         minify: isProduction ? {
           removeAttributeQuotes: false,
           collapseWhitespace: true,
           removeComments: true,
         } : false,
-        
-        // chunks: ['main'], // Укажите чанки, если у вас несколько точек входа
+        // ДОБАВЛЕНО: Указываем путь к favicon
+        favicon: './src/assets/images/favicon.svg',
       }),
-      // Плагин для agreement.html
       new HtmlWebpackPlugin({
-        template: './src/agreement.html', // *** Создайте этот файл ***
-        filename: 'agreement.html',     // Имя выходного файла в директории dist
+        template: './src/agreement.html',
+        filename: 'agreement.html',
         minify: isProduction,
-        // chunks: ['main'], // Укажите чанки, если agreement.html использует тот же JS что и index.html
-                               // Если agreement.html полностью статичен, используйте chunks: []
+        // ДОБАВЛЕНО: Указываем путь к favicon
+        favicon: './src/assets/images/favicon.svg',
       }),
       new MiniCssExtractPlugin({
         filename: isProduction ? 'css/[name].[contenthash].css' : 'css/[name].bundle.css',
       }),
-      // CleanWebpackPlugin не обязателен в devServer, но полезен для сборки продакшена
-      // new CleanWebpackPlugin(), // Обычно добавляют его для production сборки
     ],
 
     optimization: {
       minimizer: [
         new CssMinimizerPlugin(),
-        // Добавьте TerserPlugin сюда для минимизации JS в production, если он не включен по умолчанию
-        // new TerserPlugin(),
       ],
       splitChunks: {
-          chunks: 'all',
+        chunks: 'all',
       },
     },
 
