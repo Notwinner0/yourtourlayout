@@ -723,7 +723,8 @@ form {
 
   input[type="text"],
   input[type="tel"],
-  input[type="date"] {
+  input[type="date"],
+  input[type="email"] {
     color: $black;
     padding: 20px;
     gap: 10px;
