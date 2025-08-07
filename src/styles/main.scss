@@ -195,7 +195,9 @@ h3 {
   text-decoration: underline;
 }
 
-
+button {
+  cursor: pointer;
+}
 
 header {
   display: flex;
@@ -529,6 +531,7 @@ header.scrolled {
   flex-direction: column;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 
   @media (max-width: $laptop) {
     width: 450px;
@@ -552,10 +555,20 @@ header.scrolled {
     transition: transform 300ms ease;
   }
 
-  &:hover::before {
-    transform: scale(1.2);
+  &:hover {
+    .more {
+      background-color: $green-400;
+    }
+    ::before {
+      transform: scale(1.2);
+    }
   }
 
+  &:active {
+    .more {
+      background-color: $orange-200;
+    }
+  }
   > * {
     position: relative;
     z-index: 1;
@@ -614,14 +627,6 @@ header.scrolled {
       height: 26px;
       vertical-align: middle;
       margin-left: 15px;
-    }
-
-    &:hover {
-      background-color: $green-400;
-    }
-
-    &:active {
-      background-color: $orange-200;
     }
   }
 }
@@ -883,8 +888,8 @@ form {
   background-size: cover;
   background-position: center;
   position: relative;
-
-  @media (max-width: $phablet) {
+  cursor: pointer;
+  @media (max-width: $phablet) {  
     width: 20px;
     height: 20px;
     background-size: cover;
@@ -915,6 +920,7 @@ form {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    cursor: pointer;
 
     outline: none;
     background: url(../assets/images/checkbox.svg);
@@ -960,6 +966,7 @@ form {
     border-radius: 10px;
     margin: 0 auto;
     padding: 0;
+    cursor: pointer;
     @media (max-width: $phablet) {
       width: 132px;
       height: 47px;
@@ -1215,11 +1222,13 @@ form {
     z-index: 0;
   }
 
-  &:hover::before {
-    transform: scale(1.2);
+  &:hover {
+    &::before {
+      transform: scale(1.2);
+    }
   }
 
-  > * {
+  >* {
     position: relative;
     z-index: 1;
   }
