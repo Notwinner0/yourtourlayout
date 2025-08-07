@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 const PnpWebpackPlugin = require('pnp-webpack-plugin');
+const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 // Укажите здесь точное имя вашего репозитория на GitHub
 const REPOSITORY_NAME = 'yourtourlayout'; // !!! ЗАМЕНИТЕ НА ИМЯ ВАШЕГО РЕПОЗИТОРИЯ !!!
@@ -82,12 +83,20 @@ module.exports = (env, argv) => {
           ],
         },
         {
-          test: /\.(png|svg|jpg|jpeg|gif|woff|woff2|eot|ttf|otf)$/,
+          test: /\.(png|jpe?g|gif|svg|webp)$/i,
           type: 'asset/resource',
           generator: {
-            // Убедитесь, что favicon.svg также попадает в assets/
-            filename: isProduction ? 'assets/[hash][ext][query]' : 'assets/[name][ext][query]'
-          }
+            filename: isProduction
+              ? 'assets/[hash][ext][query]'
+              : 'assets/[name][ext][query]',
+          },
+        },
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/, // <-- Separate rule for fonts
+          type: 'asset/resource',
+          generator: {
+            filename: isProduction ? 'assets/[hash][ext][query]' : 'assets/[name][ext][query]',
+          },
         },
         {
           test: /\.html$/,
@@ -146,6 +155,24 @@ module.exports = (env, argv) => {
       new MiniCssExtractPlugin({
         filename: isProduction ? 'css/[name].[contenthash].css' : 'css/[name].bundle.css',
       }),
+      ...(isProduction ? [
+        new ImageMinimizerPlugin({
+          minimizer: {
+            implementation: ImageMinimizerPlugin.sharpMinify,
+            options: {
+              resize: {
+                width: 1200,                // <-- Resize here
+                withoutEnlargement: true,
+              },
+              encodeOptions: {
+                jpeg: { quality: 80 },
+                png: { quality: 80 },
+                webp: { quality: 80 },
+              },
+            },
+          },
+        })
+      ] : []),
     ],
 
     optimization: {
