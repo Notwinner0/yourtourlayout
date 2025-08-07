@@ -109,7 +109,7 @@
                             <legend for="name" class="p-normal">
                                 Имя
                             </legend>
-                            <input type="text" name="name" placeholder="Введите Ваше имя" required class="p-normal">
+                            <input type="text" name="name" placeholder="Введите Ваше имя" required class="p-normal" minlength="2">
                         </div>
                         <div>
                             <legend for="direction" class="p-normal">
@@ -134,7 +134,7 @@
                                 Телефон
                             </legend>
                             <input type="tel" name="phone" placeholder="+ 7 ( _ _ _ ) _ _ _ - _ _ - _ _" required
-                                class="p-normal">
+                                class="p-normal" pattern="[\+]\d{1}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}" minlength="18" maxlength="18" >
                         </div>
                         <div>
                             <legend for="departure" class="p-normal">
