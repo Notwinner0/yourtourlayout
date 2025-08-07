@@ -871,38 +871,32 @@ form {
     }
   }
   input[type="radio"] {
-    margin: 0px 11px 0px 0px;
-    height: 26px;
-    width: 26px;
-    vertical-align: middle;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+  margin: 0px 11px 0px 0px;
+  height: 26px;
+  width: 26px;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  background: url(../assets/images/radiobutton.svg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
 
-    
-
-    
-    outline: none;
-    background: url(../assets/images/radiobutton.svg);
-    position: relative;
-
-    @media (max-width: $phablet) {
-      width: 20px;
-      height: 20px;
-      background-size: cover;
-      background-position: center;
-    }
-
-    
-    
-    
-    
-
-    &:checked {
-      
-      background: url(../assets/images/radiobutton-a.svg);
-    }
+  @media (max-width: $phablet) {
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    background-position: center;
   }
+
+  &:checked {
+    background: url(../assets/images/radiobutton-a.svg);
+    background-size: cover;
+    background-position: center;
+  }
+}
 
   div>div {
     display: flex;
@@ -1072,8 +1066,10 @@ form {
   img {
     border-radius: 100%;
     width: 75px;
+    height: 75px;
     vertical-align: top;
     float: right;
+    object-fit: cover;
   }
 
   h3 {
