@@ -7,6 +7,12 @@ console.log('JS and SCSS are linked!');
 const greet = (name) => `Hello, ${name}!`;
 console.log(greet('Developer'));
 
+// no past
+var today = new Date().toISOString().split('T')[0];
+document.getElementsByName("departure")[0].setAttribute('min', today);
+document.getElementsByName("arrival")[0].setAttribute('min', today);
+
+
 // nefarious scroll activity
 document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('header'); // Получаем элемент хедер

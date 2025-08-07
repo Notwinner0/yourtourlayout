@@ -127,7 +127,8 @@
                                 Email
                             </legend>
                             <input type="email" name="email" placeholder="example@mail.com" required class="p-normal"
-                                title="Введите корректный адрес электронной почты, например: example@mail.com">
+                                title="Введите корректный адрес электронной почты, например: example@mail.com"
+                                pattern="[^@\s]+@[^@\s]+\.[^@\s]+">
                         </div>
                         <div>
                             <legend for="phone" class="p-normal">
@@ -140,13 +141,13 @@
                             <legend for="departure" class="p-normal">
                                 Дата от
                             </legend>
-                            <input type="date" name="departure" placeholder="ДД.ММ.ГГГГ" required class="p-normal">
+                            <input type="date" name="departure" placeholder="ДД.ММ.ГГГГ" required class="p-normal" max="9999-12-31">
                         </div>
                         <div>
                             <legend for="arrival" class="p-normal">
                                 Дата до
                             </legend>
-                            <input type="date" name="arrival" placeholder="ДД.ММ.ГГГГ" required class="p-normal">
+                            <input type="date" name="arrival" placeholder="ДД.ММ.ГГГГ" required class="p-normal" max="9999-12-31">
                         </div>
                         <div>
                             <legend for="comment" class="p-normal">
@@ -156,13 +157,13 @@
                         </div>
                         <div>
                             <legend class="p-normal">Вам есть 18 лет?</legend>
-                            <div><input type="radio" id="yes" name="adult" value="yes"><label for="yes"
+                            <div><input type="radio" id="yes" name="adult" value="yes" requred><label for="yes"
                                     class="p-normal">Да</label></div>
                             <div><input type="radio" id="no" name="adult" value="no"><label for="no"
                                     class="p-normal">Нет</label></div>
                         </div>
                         <div class="full-wide ch-wrap">
-                            <input type="checkbox" id="agreement" name="agreement" />
+                            <input type="checkbox" id="agreement" name="agreement" required/>
                             <label for="agreement" class="p-small">Нажимая кнопку, я принимаю условия <a
                                     href="agreement.html">Лицензионного договора</a></label>
                         </div>
