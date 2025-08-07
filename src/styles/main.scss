@@ -203,7 +203,7 @@ header {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
@@ -281,7 +281,7 @@ header {
 
 header.scrolled {
   background-color: #f3efe860;
-
+  position: fixed;
   backdrop-filter: blur(54px);
   -webkit-backdrop-filter: blur(54px);
 
