@@ -142,14 +142,12 @@ module.exports = (env, argv) => {
           collapseWhitespace: true,
           removeComments: true,
         } : false,
-        // ДОБАВЛЕНО: Указываем путь к favicon
         favicon: './src/assets/images/favicon.svg',
       }),
       new HtmlWebpackPlugin({
         template: './src/agreement.html',
         filename: 'agreement.html',
         minify: isProduction,
-        // ДОБАВЛЕНО: Указываем путь к favicon
         favicon: './src/assets/images/favicon.svg',
       }),
       new MiniCssExtractPlugin({
