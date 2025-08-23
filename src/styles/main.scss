@@ -445,6 +445,8 @@ header.scrolled {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
+  // grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  // gap: 30px;
   width: 100%;
 
   @media (max-width: $laptop) {
@@ -638,7 +640,7 @@ header.scrolled {
 
 
 .col-a {
-  width: 1170px;
+  width: 60.9375vw;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -1397,48 +1399,55 @@ footer {
   height: 88px;
   width: 100%;
   background-color: $beige-200;
+  box-sizing: border-box;
 
   @media (max-width: $laptop) {
-    width: 918px;
+    // width: 918px;
     padding: 0 53px 0 53px;
   }
 
   @media (max-width: $phablet) {
-    width: 317px;
+    // width: 317px;
     padding: 0 21.5px 0 21.5px;
     height: 95px;
   }
 
-  div {
+  .wrap {
     margin: auto;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
+    width: 60%;
+
     @media (max-width: $laptop) {
       flex-wrap: wrap;
-      margin: unset;
+      // margin: unset;
+      width: 89.6484%;
+
+    }
+
+    @media (max-width: $phablet) {
+      justify-content: center;
     }
 
     .l {
       color: $gray-300;
-      margin-right: 538px;
+      // margin-right: 538px;
       order: -1;
+
       @media (max-width: $laptop) {
-        margin-right: 288px;
+        // margin-right: 288px;
       }
+
       @media (max-width: $phablet) {
         margin-right: 0;
       }
     }
 
-    .r>a {
-      color: $black;
-      text-decoration: none;
-    }
 
     a:before {
       content: '';
-      
+
       display: inline-block;
       width: 26px;
       height: 26px;
@@ -1462,8 +1471,9 @@ footer {
     }
 
     a:nth-child(2):before {
-      background:  center / 100% url(../assets/images/fb.png);
+      background: center / 100% url(../assets/images/fb.png);
       margin-left: 25px;
+
       @media (max-width: $phablet) {
         margin-left: 15px;
         width: 21px;
@@ -1472,11 +1482,21 @@ footer {
     }
 
     a:nth-child(3):before {
-      background:  center / 100% url(../assets/images/vk.png);
+      background: center / 100% url(../assets/images/vk.png);
       margin-left: 25px;
+
       @media (max-width: $phablet) {
         margin-left: 15px;
       }
+    }
+  }
+
+  .r {
+    display: flex;
+    flex-wrap: nowrap;
+    a {
+      color: $black;
+      text-decoration: none;
     }
   }
 }
