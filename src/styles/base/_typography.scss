@@ -1,0 +1,95 @@
+@use "../abstracts/variables" as *;
+
+h1 {
+  margin: 0;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 96px;
+  line-height: 109%;
+  letter-spacing: 0.02em;
+  font-variant-ligatures: none;
+  color: $black;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+
+  @media (max-width: $phablet) {
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 112%;
+  }
+}
+
+h2 {
+  @extend h1;
+  font-size: 59px;
+  line-height: 124%;
+  letter-spacing: 0em;
+
+  @media (max-width: $phablet) {
+    font-size: 34px;
+    line-height: 112%;
+    letter-spacing: 0.02em;
+  }
+}
+
+h3 {
+  @extend h1;
+  font-weight: 500;
+  font-size: 35px;
+  line-height: 122%;
+  letter-spacing: 0em;
+
+  @media (max-width: $phablet) {
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 120%;
+    letter-spacing: 0.04em;
+  }
+}
+
+.p-normal {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 142%;
+  letter-spacing: 0;
+  font-kerning: none;
+  font-variant-ligatures: none;
+  color: $black;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+
+  @media (max-width: $phablet) {
+    font-size: 16px;
+  }
+}
+
+.p-big {
+  @extend .p-normal;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 122%;
+  font-variant-ligatures: normal;
+  font-kerning: normal;
+
+  @media (max-width: $phablet) {
+    font-size: 16px;
+    line-height: 142%;
+  }
+}
+
+.p-small {
+  @extend .p-normal;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 142%;
+  letter-spacing: -0.01em;
+
+  @media (max-width: $phablet) {
+    font-size: 16px;
+  }
+}

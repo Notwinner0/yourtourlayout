@@ -1,0 +1,18 @@
+@use "../abstracts/variables" as *;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: $body-bg;
+  font-family: $font-stack;
+  font-size: $font-size;
+  scrollbar-gutter: stable;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+main {
+  background-color: $body-bg;
+  width: 100%;
+}

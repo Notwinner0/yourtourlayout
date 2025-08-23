@@ -1,0 +1,108 @@
+@use "../abstracts/variables" as *;
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 88px;
+  width: 100%;
+  background-color: $beige-200;
+  box-sizing: border-box;
+
+  @media (max-width: $laptop) {
+    // width: 918px;
+    padding: 0 53px 0 53px;
+  }
+
+  @media (max-width: $phablet) {
+    // width: 317px;
+    padding: 0 21.5px 0 21.5px;
+    height: 95px;
+  }
+
+  .wrap {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+
+    @media (max-width: $laptop) {
+      flex-wrap: wrap;
+      // margin: unset;
+      width: 89.6484%;
+    }
+
+    @media (max-width: $phablet) {
+      justify-content: center;
+    }
+
+    .l {
+      color: $gray-300;
+      // margin-right: 538px;
+      order: -1;
+
+      @media (max-width: $laptop) {
+        // margin-right: 288px;
+      }
+
+      @media (max-width: $phablet) {
+        margin-right: 0;
+      }
+    }
+
+    a:before {
+      content: '';
+
+      display: inline-block;
+      width: 26px;
+      height: 26px;
+      vertical-align: middle;
+      margin-right: 10px;
+
+      @media (max-width: $phablet) {
+        margin-right: 5px;
+        width: 22px;
+        height: 22px;
+      }
+    }
+
+    a:hover {
+      text-underline-offset: 6px;
+      text-decoration: solid underline 1px;
+    }
+
+    a:nth-child(1):before {
+      background: center / 100% url(../assets/images/telegram-plane-svgrepo-com\ 1.png);
+    }
+
+    a:nth-child(2):before {
+      background: center / 100% url(../assets/images/fb.png);
+      margin-left: 25px;
+
+      @media (max-width: $phablet) {
+        margin-left: 15px;
+        width: 21px;
+        height: 21px;
+      }
+    }
+
+    a:nth-child(3):before {
+      background: center / 100% url(../assets/images/vk.png);
+      margin-left: 25px;
+
+      @media (max-width: $phablet) {
+        margin-left: 15px;
+      }
+    }
+  }
+
+  .r {
+    display: flex;
+    flex-wrap: nowrap;
+    a {
+      color: $black;
+      text-decoration: none;
+    }
+  }
+}

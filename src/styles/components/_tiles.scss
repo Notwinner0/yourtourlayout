@@ -1,0 +1,196 @@
+@use "../abstracts/variables" as *;
+
+.tiles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  // grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  // gap: 30px;
+  width: 100%;
+
+  @media (max-width: $laptop) {
+    justify-content: center;
+    column-gap: 18px;
+  }
+
+  // Общие стили для всех тайлов с фоном
+  .a, .b, .c, .d, .e, .f {
+    position: relative;
+    overflow: hidden;
+    transition: transform 300ms ease;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: transform 300ms ease;
+    }
+
+    &:hover::before {
+      transform: scale(1.2);
+    }
+
+    > * {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  .a::before {
+    background-image:
+      linear-gradient(360deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.06) 48.44%, rgba(0, 0, 0, 0.5) 100%),
+      url(../assets/images/card\ tour\ photo-1.jpg);
+  }
+
+  .b::before {
+    background-image:
+      linear-gradient(360deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.06) 48.44%, rgba(0, 0, 0, 0.5) 100%),
+      url(../assets/images/card\ tour\ photo-2.jpg);
+  }
+
+  .c::before {
+    background-image:
+      linear-gradient(360deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.06) 48.44%, rgba(0, 0, 0, 0.5) 100%),
+      url(../assets/images/card\ tour\ photo-3.jpg);
+  }
+
+  .d::before {
+    background-image:
+      linear-gradient(360deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.06) 48.44%, rgba(0, 0, 0, 0.5) 100%),
+      url(../assets/images/card\ tour\ photo-4.jpg);
+  }
+
+  .e::before {
+    background-image:
+      linear-gradient(360deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.06) 48.44%, rgba(0, 0, 0, 0.5) 100%),
+      url(../assets/images/card\ tour\ photo-5.jpg);
+  }
+
+  .f::before {
+    background-image:
+      linear-gradient(360deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.06) 48.44%, rgba(0, 0, 0, 0.5) 100%),
+      url(../assets/images/card\ tour\ photo-6.jpg);
+  }
+
+  .d, .e, .f {
+    margin-bottom: 0px;
+
+    @media (max-width: $phablet) {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.tile {
+  height: 531px;
+  width: 370px;
+  border-radius: 50px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  @media (max-width: $laptop) {
+    width: 450px;
+    height: 531px;
+  }
+
+  @media (max-width: $phablet) {
+    width: 318px;
+    height: 318px;
+    border-radius: 20px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 300ms ease;
+  }
+
+  &:hover {
+    .more {
+      background-color: $green-400;
+    }
+    ::before {
+      transform: scale(1.2);
+    }
+  }
+
+  &:active {
+    .more {
+      background-color: $orange-200;
+    }
+  }
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .title {
+    color: white;
+    padding-top: 50px;
+    padding-left: 50px;
+    padding-right: 51px;
+    margin-bottom: 16px;
+
+    @media (max-width: $phablet) {
+      padding: 25px 25px 0 25px;
+      margin-bottom: 13px;
+    }
+  }
+
+  .price {
+    color: white;
+    padding-left: 50px;
+    padding-right: 50px;
+
+    @media (max-width: $phablet) {
+      padding: 0 25px 0 25px;
+      margin-bottom: 13px;
+    }
+  }
+
+  .more {
+    padding: 0;
+    color: white;
+    background-color: transparent;
+    border-color: transparent;
+    border: none;
+    font-family: $font-stack;
+    margin-top: auto;
+    margin-right: auto;
+    margin-left: 30px;
+    margin-bottom: 43px;
+    width: 199px;
+    height: 42px;
+    border-radius: 50px;
+
+    @media (max-width: $phablet) {
+      margin-bottom: 30px;
+      margin-left: 30px;
+      height: 26px;
+      width: 123px;
+    }
+
+    &::after {
+      content: url(../assets/images/arrow\ bt.png);
+      display: inline-block;
+      width: 24px;
+      height: 26px;
+      vertical-align: middle;
+      margin-left: 15px;
+    }
+  }
+}

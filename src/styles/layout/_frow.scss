@@ -1,0 +1,53 @@
+@use "../abstracts/variables" as *;
+
+.frow {
+  display: flex;
+  flex-direction: row;
+  width: 771px;
+  // align-items: center;
+
+  @media (max-width: $phablet) {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+  }
+
+  img {
+    width: 370px;
+    height: 370px;
+    border-radius: 50px;
+    margin-right: 30px;
+
+    @media (max-width: $phablet) {
+      width: 130px;
+      height: 133px;
+      border-radius: 20px;
+      margin-right: unset;
+      margin-bottom: 30px;
+    }
+  }
+
+  div {
+    padding-top: 102px;
+    @media (max-width: $phablet) {
+      width: 291px;
+      padding-top: 0;
+    }
+
+    p {
+      color: $gray-300;
+
+      a {
+        background-color: transparent;
+        border-color: transparent;
+        border: none;
+        padding: 0 0;
+        font-family: $font-stack;
+        &:hover {
+          text-decoration-thickness: 1px;
+        }
+      }
+    }
+  }
+}

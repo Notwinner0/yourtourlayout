@@ -1,0 +1,76 @@
+@use "../abstracts/variables" as *;
+
+.review {
+  box-sizing: border-box;
+  width: 570px;
+  height: 673px;
+  background-color: $beige-200;
+  border-radius: 50px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  float: left;
+  @media (max-width: $laptop) {
+    width: 450px;
+    height: 841px;
+    &:nth-child(1) {
+      margin-left: 53px;
+    }
+    &:nth-child(2) {
+      margin-right: 53px;
+    }
+  }
+
+  @media (max-width: $phablet) {
+    width: 318px;
+    height: 408px;
+    margin: 0;
+    &:nth-child(1) {
+      margin: 0 21px 0 21px;
+    }
+    &:nth-child(2) {
+      margin: 18px 21px 0 21px;
+      height: 592px;
+    }
+    padding: 20px;
+    border-radius: 20px;
+  }
+
+  &.a {
+    margin-right: 30px;
+
+    @media (max-width: $laptop) {
+      margin-right: 18px;
+    }
+
+    @media (max-width: $phablet) {
+      margin-right: unset;
+    }
+  }
+
+  .card-bottom {
+    display: inline-block;
+    height: 75px;
+    @media (max-width: $phablet) {
+      height: 59px;
+    }
+  }
+
+  img {
+    border-radius: 100%;
+    width: 75px;
+    height: 75px;
+    vertical-align: top;
+    float: right;
+    object-fit: cover;
+  }
+
+  h3 {
+    margin-bottom: 8px;
+  }
+
+  .p-small {
+    color: $gray-300;
+  }
+}

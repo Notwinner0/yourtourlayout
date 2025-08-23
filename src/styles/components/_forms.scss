@@ -1,0 +1,320 @@
+@use "../abstracts/variables" as *;
+
+legend {
+  margin-bottom: 8px;
+  padding: 0px;
+  height: 28px;
+}
+
+form {
+  @media (max-width: $laptop) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background: #FFFFFF;
+  border-radius: 50px;
+  padding: 70px;
+  column-gap: 30px;
+  row-gap: 33px;
+
+  @media (max-width: $laptop) {
+    padding: 60px;
+    column-gap: 20px;
+    width: calc(918px - 120px);
+    row-gap: 30px;
+  }
+
+  @media (max-width: $phablet) {
+    padding: 20px;
+    width: calc(318px - 40px);
+    border-radius: 30px;
+  }
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="date"],
+  input[type="email"] {
+    color: $black;
+    padding: 20px;
+    gap: 10px;
+    font-family: $font-stack;
+    background: $body-bg;
+    border: 1px solid $beige-200;
+    border-radius: 10px;
+    width: 500px;
+    box-sizing: border-box;
+    height: 68px;
+
+    @media (max-width: $laptop) {
+      width: 389px;
+    }
+
+    @media (max-width: $phablet) {
+      width: 278px;
+      height: 43px;
+    }
+
+    &::placeholder {
+      color: $gray-300;
+    }
+
+    &:hover {
+      background: $beige-200;
+      border-color: $beige-200;
+    }
+
+    &:focus {
+      outline: none;
+      background: $beige-200;
+      border-color: $gray-300;
+    }
+  }
+
+  select {
+    color: $black;
+    padding: 20px;
+    gap: 10px;
+    font-family: $font-stack;
+    background: $body-bg;
+    border: 1px solid $beige-200;
+    border-radius: 10px;
+    width: 500px;
+    appearance: base-select;
+    box-sizing: border-box;
+    height: 68px;
+
+    @media (max-width: $laptop) {
+      width: 389px;
+    }
+
+    @media (max-width: $phablet) {
+      width: 278px;
+      height: 46px;
+      padding: 11.5px 10px;
+    }
+
+    &:required:invalid {
+      color: $gray-300;
+    }
+
+    &::picker(select) {
+      appearance: base-select;
+    }
+
+    &::picker-icon {
+      content: "";
+      color: $black;
+      background: url(../assets/images/ic-dropdown.svg);
+      width: 26px;
+      height: 26px;
+      @media (max-width: $phablet) {
+        margin-top: -1px;
+      }
+    }
+
+    &:hover {
+      background: $beige-200;
+      border-color: $beige-200;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  input[type="date"] {
+    @media (max-width: $laptop) {
+      width: 389px;
+    }
+
+    @media (max-width: $phablet) {
+      width: 278px;
+      height: 43px;
+    }
+
+    &::-webkit-calendar-picker-indicator {
+      cursor: pointer;
+      background-image: none;
+    }
+
+    &:invalid {
+      color: $gray-300;
+      text-transform: uppercase;
+      font-family: $font-stack;
+    }
+  }
+  textarea {
+    resize: none;
+    color: $black;
+    padding: 20px;
+    gap: 10px;
+    font-family: $font-stack;
+    background: $body-bg;
+    border: 1px solid $beige-200;
+    border-radius: 10px;
+    height: 152px;
+    box-sizing: border-box;
+    margin-bottom: -4px;
+    width: 1030px;
+    @media (max-width: $laptop) {
+      width: 798px;
+    }
+
+    @media (max-width: $phablet) {
+      width: 278px;
+    }
+
+    &:hover {
+      background: $beige-200;
+      border-color: $beige-200;
+    }
+
+    &:focus {
+      outline: none;
+      background: $beige-200;
+      border-color: $gray-300;
+    }
+  }
+  input[type="radio"] {
+  margin: 0px 11px 0px 0px;
+  height: 26px;
+  width: 26px;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: none;
+  background: url(../assets/images/radiobutton.svg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  cursor: pointer;
+  @media (max-width: $phablet) {
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  &:checked {
+    background: url(../assets/images/radiobutton-a.svg);
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+  div>div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    float: left;
+    margin-right: 31px;
+  }
+
+  input[type="checkbox"] {
+    margin: 0px 19px 0px 0px;
+    height: 26px;
+    width: 26px;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+
+    outline: none;
+    background: url(../assets/images/checkbox.svg);
+    position: relative;
+
+    @media (max-width: $phablet) {
+      margin-right: 10px;
+      background-size: cover;
+      background-position: center;
+      width: 20px;
+      height: 20px;
+      vertical-align: top;
+    }
+
+    &:checked {
+      background: url(../assets/images/checkbox-a.svg);
+    }
+  }
+
+  .ch-wrap {
+    @media (max-width: $phablet) {
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+
+  label[for="agreement"] {
+    display: inline-block;
+    color: $gray-300;
+    vertical-align: top;
+    @media (max-width: $phablet) {
+      width: 248px;
+      height: 69px;
+    }
+  }
+
+  .form-btn {
+    width: 235px;
+    height: 58px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    margin: 0 auto;
+    padding: 0;
+    cursor: pointer;
+    @media (max-width: $phablet) {
+      width: 132px;
+      height: 47px;
+      padding: 0;
+    }
+
+    &.a {
+      color: white;
+      background-color: $green-400;
+      margin-right: 30px;
+      @media (max-width: $phablet) {
+        margin-right: 10px;
+      }
+
+      &:hover {
+        background-color: $green-300;
+      }
+
+      &:active {
+        background-color: $green-200;
+      }
+    }
+
+    &.b {
+      color: $green-400;
+      background-color: $green-100;
+
+      &:hover {
+        background-color: $gray-100;
+      }
+
+      &:active {
+        background-color: $gray-200;
+      }
+    }
+  }
+}
+.x {
+  @media (max-width: $phablet) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+}

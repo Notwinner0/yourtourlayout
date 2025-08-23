@@ -1,0 +1,81 @@
+@use "../abstracts/variables" as *;
+
+.full-wide {
+  width: 100%;
+}
+
+.weblink {
+  text-decoration: none;
+  color: white;
+}
+
+.weblink:hover {
+  text-decoration: solid underline auto;
+}
+
+.weblink:active {
+  color: $orange-200;
+  text-decoration: underline;
+}
+
+button, a {
+  cursor: pointer;
+}
+
+.col-a {
+  width: 60.9375vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  @media (max-width: $laptop) {
+    width: 100vw;
+  }
+}
+
+section {
+  margin-bottom: 135px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  @media (max-width: $phablet) {
+    margin-bottom: 75px;
+  }
+}
+
+.titular {
+  width: auto;
+  height: auto;
+  margin-bottom: 100px;
+
+  @media (max-width: $phablet) {
+    margin-bottom: 50px;
+  }
+
+  .title {
+    text-align: center;
+    margin-bottom: 30px;
+    @media (max-width: $phablet) {
+      margin-bottom: 20px;
+    }
+  }
+
+  div {
+    color: $gray-300;
+    text-align: center;
+  }
+}
+
+a[href="mailto:yourtour@gmail.com"], a[href="agreement.html"] {
+  color: $black;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:active {
+    text-decoration: underline;
+    color: $green-400;
+  }
+}

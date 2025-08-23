@@ -1,0 +1,58 @@
+@use "../abstracts/variables" as *;
+
+.choose {
+  width: 700px;
+  height: 142px;
+  margin-bottom: 100px;
+  @media (max-width: $phablet) {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+  }
+
+  .title {
+    text-align: center;
+    color: $black;
+    margin-bottom: 35px;
+    @media (max-width: $phablet) {
+      margin-bottom: 30px;
+      order: -1;
+    }
+  }
+
+  .selector {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    @media (max-width: $phablet) {
+      flex-wrap: wrap;
+      row-gap: 10px;
+      width: calc(100% - 51.5px * 2);
+      justify-content: center;
+      column-gap: 10px;
+    }
+  }
+}
+
+.selector-button {
+  color: $black;
+  background-color: transparent;
+  border-color: transparent;
+  border: none;
+  padding: 0 0;
+  font-family: $font-stack;
+
+  &:hover {
+    text-decoration: underline;
+    text-underline-offset: 10px;
+  }
+
+  &.active {
+    color: $orange-200;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+  }
+}
