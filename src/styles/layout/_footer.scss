@@ -23,7 +23,6 @@ footer {
   .wrap {
     margin: auto;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     width: 60%;
 
@@ -69,7 +68,7 @@ footer {
 
     a:hover {
       text-underline-offset: 6px;
-      text-decoration: solid underline 1px;
+      text-decoration: underline;
     }
 
     a:nth-child(1):before {

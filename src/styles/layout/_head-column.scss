@@ -29,13 +29,11 @@
 
   .head-title {
     color: white;
-    max-width: 100%;
     width: 767px;
     margin-bottom: 50px;
     @media (max-width: $phablet) {
       width: 100vw;
       margin-bottom: 40px;
-      height: auto;
     }
   }
 
@@ -46,7 +44,6 @@
     margin: 0 auto;
     @media (max-width: $phablet) {
       width: 310px;
-      height: auto;
     }
   }
 }
@@ -56,7 +53,6 @@
   height: 34px;
   text-align: center;
   background-color: white;
-  border-color: transparent;
   border: none;
   border-radius: 10px;
   margin: 0 auto;

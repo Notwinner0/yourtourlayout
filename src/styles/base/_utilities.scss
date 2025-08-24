@@ -10,7 +10,7 @@
 }
 
 .weblink:hover {
-  text-decoration: solid underline auto;
+  text-decoration: underline;
 }
 
 .weblink:active {
@@ -18,7 +18,7 @@
   text-decoration: underline;
 }
 
-button, a {
+button {
   cursor: pointer;
 }
 
@@ -45,8 +45,6 @@ section {
 }
 
 .titular {
-  width: auto;
-  height: auto;
   margin-bottom: 100px;
 
   @media (max-width: $phablet) {

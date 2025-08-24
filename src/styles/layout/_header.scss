@@ -2,8 +2,6 @@
 
 header {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
   position: absolute;
   top: 0;
   left: 0;
@@ -14,10 +12,8 @@ header {
   transition: background-color 0.3s ease-in-out;
 
   .header-content {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
+  display: flex;
+  align-items: center;
     justify-content: space-between;
     width: 1168px;
     @media (max-width: $laptop) {
@@ -43,9 +39,6 @@ header {
     .mid-section {
       width: 468px;
       display: flex;
-      width: 468px;
-      flex-direction: row;
-      flex-wrap: nowrap;
       justify-content: space-between;
 
       @media (max-width: $laptop) {
@@ -59,9 +52,8 @@ header {
       .header-button {
         color: white;
         background-color: transparent;
-        border-color: transparent;
         border: none;
-        padding: 0 0;
+        padding: 0;
         font-family: $font-stack;
         text-decoration: none;
         &:hover {

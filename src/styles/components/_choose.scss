@@ -24,8 +24,6 @@
 
   .selector {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
     justify-content: space-between;
     @media (max-width: $phablet) {
       flex-wrap: wrap;
@@ -40,9 +38,8 @@
 .selector-button {
   color: $black;
   background-color: transparent;
-  border-color: transparent;
   border: none;
-  padding: 0 0;
+  padding: 0;
   font-family: $font-stack;
 
   &:hover {

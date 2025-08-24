@@ -2,7 +2,6 @@
 
 .frow {
   display: flex;
-  flex-direction: row;
   width: 771px;
   // align-items: center;
 
@@ -39,11 +38,8 @@
       color: $gray-300;
 
       a {
-        background-color: transparent;
-        border-color: transparent;
         border: none;
-        padding: 0 0;
-        font-family: $font-stack;
+        padding: 0;
         &:hover {
           text-decoration-thickness: 1px;
         }
